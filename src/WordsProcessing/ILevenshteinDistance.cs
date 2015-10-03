@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WordsProcessing
 {
-    interface ILevenshteinDistance
+    public interface ILevenshteinDistance
     {
         int CalcLevenshteinDistance(string firstString, string secondString);
     }
