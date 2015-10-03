@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Ninject;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
@@ -9,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WordsProcessing;
+using WordsProcessing.Algorithms;
 
 namespace Lab1
 {
@@ -17,14 +19,15 @@ namespace Lab1
         public MainForm()
         {
             InitializeComponent();
-            WordsDictionary = new WordsDictionary();
+            IKernel ninjectKernel = new StandardKernel(new NinjectConfigModule());
+            CustomWordsDictionary = ninjectKernel.Get<WordsDictionary>();
             try
             {
                 string[] dictionaryFileNames = ConfigurationManager.AppSettings["DictionariesFileNames"].Split(';');
                 foreach (string dictionary in dictionaryFileNames)
                 {
                     if (dictionary != "")
-                        WordsDictionary.AddWordsToDictionary(dictionary);
+                        CustomWordsDictionary.AddWordsToDictionary(dictionary);
                 }
             }
             catch (Exception exception)
@@ -33,7 +36,7 @@ namespace Lab1
             }
         }
 
-        WordsDictionary WordsDictionary { get; set; }
+        WordsDictionary CustomWordsDictionary { get; set; }
 
         private void AddClosestWordsToList(List<string> closestWords)
         {
@@ -49,7 +52,7 @@ namespace Lab1
             try
             {
                 string word = txtInputWord.Text;
-                Task<List<string>> task = new Task<List<string>>(() => WordsDictionary.GetClosestWords(word));
+                Task<List<string>> task = new Task<List<string>>(() => CustomWordsDictionary.GetClosestWords(word));
                 task.ContinueWith(OnDictionaryProcessingComplete);
                 toolStripStatusLabel.Text = "Поиск...";
                 task.Start();

@@ -14,9 +14,9 @@ namespace WordsProcessing
         ILevenshteinDistance LevDistance { get; set; }
         List<string> Words { get; set; }
 
-        public WordsDictionary() 
+        public WordsDictionary(ILevenshteinDistance levDistance) 
         {
-            LevDistance = new WagnerFischer();
+            LevDistance = levDistance;
             Words = new List<string>();
         }
 

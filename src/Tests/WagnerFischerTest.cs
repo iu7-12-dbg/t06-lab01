@@ -13,7 +13,7 @@ namespace Tests
     {
         [TestMethod]
         [ExpectedException(typeof(System.NullReferenceException))]
-        public void LevinsteinDistanceTest1()
+        public void WagnerFischerTest1()
         {
             //arrange
             WagnerFischer levDistance = new WagnerFischer();
@@ -26,7 +26,7 @@ namespace Tests
 
         [TestMethod]
         [ExpectedException(typeof(System.NullReferenceException))]
-        public void LevinsteinDistanceTest2()
+        public void WagnerFischerTest2()
         {
             //arrange
             WagnerFischer levDistance = new WagnerFischer();
@@ -39,7 +39,7 @@ namespace Tests
 
         [TestMethod]
         [ExpectedException(typeof(System.NullReferenceException))]
-        public void LevinsteinDistanceTest3()
+        public void WagnerFischerTest3()
         {
             //arrange
             WagnerFischer levDistance = new WagnerFischer();
@@ -51,7 +51,7 @@ namespace Tests
         }
 
         [TestMethod]
-        public void LevinsteinDistanceTest4()
+        public void WagnerFischerTest4()
         {
             //arrange
             WagnerFischer levDistance = new WagnerFischer();
@@ -65,7 +65,7 @@ namespace Tests
         }
 
         [TestMethod]
-        public void LevinsteinDistanceTest5()
+        public void WagnerFischerTest5()
         {
             //arrange
             WagnerFischer levDistance = new WagnerFischer();
@@ -79,7 +79,7 @@ namespace Tests
         }
 
         [TestMethod]
-        public void LevinsteinDistanceTest6()
+        public void WagnerFischerTest6()
         {
             //arrange
             WagnerFischer levDistance = new WagnerFischer();
@@ -93,7 +93,7 @@ namespace Tests
         }
 
         [TestMethod]
-        public void LevinsteinDistanceTest7()
+        public void WagnerFischerTest7()
         {
             //arrange
             WagnerFischer levDistance = new WagnerFischer();
