@@ -15,94 +15,88 @@ namespace Tests
         [ExpectedException(typeof(System.NullReferenceException))]
         public void WagnerFischerTest1()
         {
-            //arrange
+            // arrange
             WagnerFischer levDistance = new WagnerFischer();
 
-            //action
+            // act, assert
             int distance = levDistance.CalcLevenshteinDistance(null, "Stroka2");
-
-            // assert is handled by the ExpectedException
         }
 
         [TestMethod]
         [ExpectedException(typeof(System.NullReferenceException))]
         public void WagnerFischerTest2()
         {
-            //arrange
+            // arrange
             WagnerFischer levDistance = new WagnerFischer();
 
-            //action
+            // act, assert
             int distance = levDistance.CalcLevenshteinDistance("Stroka1", null);
-
-            // assert is handled by the ExpectedException
         }
 
         [TestMethod]
         [ExpectedException(typeof(System.NullReferenceException))]
         public void WagnerFischerTest3()
         {
-            //arrange
+            // arrange
             WagnerFischer levDistance = new WagnerFischer();
 
-            //action
+            // act, assert
             int distance = levDistance.CalcLevenshteinDistance("", "Stroka2");
-
-            // assert is handled by the ExpectedException
         }
 
         [TestMethod]
         public void WagnerFischerTest4()
         {
-            //arrange
+            // arrange
             WagnerFischer levDistance = new WagnerFischer();
             int sampleDistance = 3;
 
-            //act
+            // act
             int distance = levDistance.CalcLevenshteinDistance("holera", "opera");
 
-            //assert
+            // assert
             Assert.AreEqual(sampleDistance, distance);
         }
 
         [TestMethod]
         public void WagnerFischerTest5()
         {
-            //arrange
+            // arrange
             WagnerFischer levDistance = new WagnerFischer();
             int sampleDistance = 5;
 
-            //act
+            // act
             int distance = levDistance.CalcLevenshteinDistance("opera", "ghost");
 
-            //assert
+            // assert
             Assert.AreEqual(sampleDistance, distance);
         }
 
         [TestMethod]
         public void WagnerFischerTest6()
         {
-            //arrange
+            // arrange
             WagnerFischer levDistance = new WagnerFischer();
             int sampleDistance = 3;
 
-            //act
+            // act
             int distance = levDistance.CalcLevenshteinDistance("ditance", "distance");
 
-            //assert
+            // assert
             Assert.AreEqual(sampleDistance, distance);
         }
 
         [TestMethod]
         public void WagnerFischerTest7()
         {
-            //arrange
+            // arrange
             WagnerFischer levDistance = new WagnerFischer();
             int sampleDistance = 3;
 
-            //act
+            // act
             int distance = levDistance.CalcLevenshteinDistance("yndeex", "yandex");
 
-            //assert
+            // assert
             Assert.AreEqual(sampleDistance, distance);
         }
     }
