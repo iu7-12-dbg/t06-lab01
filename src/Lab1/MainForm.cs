@@ -14,8 +14,16 @@ using WordsProcessing.Algorithms;
 
 namespace Lab1
 {
+    /// <summary>
+    /// Класс MainForm
+    /// описывает интерфейс приложения
+    /// </summary>
     public partial class MainForm : Form
     {
+        /// <summary>
+        /// Конструктор MainForm
+        /// инициализирует объект класса и заполняет члены начальными значениями
+        /// </summary>
         public MainForm()
         {
             InitializeComponent();
@@ -38,6 +46,12 @@ namespace Lab1
 
         WordsDictionary CustomWordsDictionary { get; set; }
 
+        /// <summary>
+        /// Метод AddClosestWordsToList
+        /// выводит в объект ListBox интерфейса список слов с минимальным редакционным расстоянием
+        /// по отношению к введенному слову
+        /// </summary>
+        /// <param name="closestWords"></param>
         private void AddClosestWordsToList(List<string> closestWords)
         {
             lbClosestWords.Items.Clear();
@@ -47,6 +61,14 @@ namespace Lab1
             }
         }
 
+        /// <summary>
+        /// Метод btnFindClosestWords_Click
+        /// обрабатывает нажатие кнопки "Поиск",
+        /// запускает в отдельном потоке поиск слов по словарю, у которых
+        /// редакционное расстояние минимально по отношению к введенному слову
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnFindClosestWords_Click(object sender, EventArgs e)
         {
             try
@@ -63,12 +85,24 @@ namespace Lab1
             }
         }
 
+        /// <summary>
+        /// Метод OnDictionaryProcessingComplete
+        /// вызывает метод для вывода списка найденных слов на экран.
+        /// Метод выполняется по окончанию поиска слов по словарю
+        /// </summary>
+        /// <param name="task"></param>
         private void OnDictionaryProcessingComplete(Task<List<string>> task)
         {
             Invoke(new Action<List<string>>(AddClosestWordsToList), task.Result);
             toolStripStatusLabel.Text = "Готово";
         }
 
+        /// <summary>
+        /// Метод MainForm_Load
+        /// обновляет интерфейс при его загрузке
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MainForm_Load(object sender, EventArgs e)
         {
             toolStripStatusLabel.Text = "";
