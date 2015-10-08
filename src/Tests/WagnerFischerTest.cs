@@ -4,106 +4,220 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WordsProcessing;
 using WordsProcessing.Algorithms;
 
 namespace Tests
 {
+    /// <summary>
+    /// Реализует тестирование алгоритма Вагнера-Фишера
+    /// </summary>
     [TestClass]
     public class WagnerFischerTest
     {
+		/// <summary>
+        /// Тестирует расчет расстояния Левенштейна между строкой, представляющей пустую ссылку, 
+        /// (1й аргумент) и непустой строкой (2й аргумент) - "Stroka2"
+        /// </summary>
         [TestMethod]
-        [ExpectedException(typeof(System.NullReferenceException))]
-        public void LevinsteinDistanceTest1()
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void CalcLevenshteinDistanceFirstNullArgumentTest()
         {
-            //arrange
-            WagnerFischer levDistance = new WagnerFischer();
+            // arrange
+            ILevenshteinDistance levDistance = new WagnerFischer();
 
-            //action
+            // act, assert
             int distance = levDistance.CalcLevenshteinDistance(null, "Stroka2");
-
-            // assert is handled by the ExpectedException
         }
 
+		/// <summary>
+        /// Тестирует расчет расстояния Левенштейна между непустой строкой (1й аргумент) - "Stroka1" - и строкой, 
+        /// представляющей пустую ссылку (2й аргумент)
+        /// </summary>
         [TestMethod]
-        [ExpectedException(typeof(System.NullReferenceException))]
-        public void LevinsteinDistanceTest2()
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void CalcLevenshteinDistanceSecondNullArgumentTest()
         {
-            //arrange
-            WagnerFischer levDistance = new WagnerFischer();
+            // arrange
+            ILevenshteinDistance levDistance = new WagnerFischer();
 
-            //action
+            // act, assert
             int distance = levDistance.CalcLevenshteinDistance("Stroka1", null);
-
-            // assert is handled by the ExpectedException
         }
 
+        /// <summary>
+        /// Тестирует расчет расстояния Левенштейна между двумя строками, ссылки на которые равны null.
+        /// </summary>
         [TestMethod]
-        [ExpectedException(typeof(System.NullReferenceException))]
-        public void LevinsteinDistanceTest3()
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void CalcLevenshteinDistanceBothNullArgumentsTest()
         {
-            //arrange
-            WagnerFischer levDistance = new WagnerFischer();
+            // arrange
+            ILevenshteinDistance levDistance = new WagnerFischer();
 
-            //action
-            int distance = levDistance.CalcLevenshteinDistance("", "Stroka2");
-
-            // assert is handled by the ExpectedException
+            // act, assert
+            int distance = levDistance.CalcLevenshteinDistance(null, null);
         }
 
+
+		/// <summary>
+        /// Тестирует расчет расстояния Левенштейна между пустой строкой (1й аргумент) и непустой 
+        /// строкой (2й аргумент) - "Stroka"
+        /// </summary>
         [TestMethod]
-        public void LevinsteinDistanceTest4()
+        public void CalcLevenshteinDistanceFirstEmptyStringTest()
+        {
+            // arrange
+            ILevenshteinDistance levDistance = new WagnerFischer();
+            string testString = "Stroka";
+
+            // act
+            int distance = levDistance.CalcLevenshteinDistance("", testString);
+
+            // assert
+            Assert.AreEqual(testString.Length * levDistance.InsertionWeight, distance);
+        }
+
+        /// <summary>
+        /// Тестирует расчет расстояния Левенштейна между непустой строкой (1й аргумент) и пустой 
+        /// строкой (2й аргумент) - "Stroka2"
+        /// </summary>
+        [TestMethod]
+        public void CalcLevenshteinDistanceSecondEmptyStringTest()
+        {
+            // arrange
+            ILevenshteinDistance levDistance = new WagnerFischer();
+            string testString = "Stroka2";
+
+            // act
+            int distance = levDistance.CalcLevenshteinDistance(testString, "");
+
+            // assert
+            Assert.AreEqual(testString.Length * levDistance.DeletionWeight, distance);
+        }
+
+        /// <summary>
+        /// Тестирует расчет расстояния Левенштейна между двумя пустыми строками
+        /// </summary>
+        [TestMethod]
+        public void CalcLevenshteinDistanceBothEmptyStringTest()
+        {
+            // arrange
+            ILevenshteinDistance levDistance = new WagnerFischer();
+
+            // act, assert
+            int distance = levDistance.CalcLevenshteinDistance("", "");
+
+            // assert
+            Assert.AreEqual(0, distance);
+        }
+		
+		/// <summary>
+        /// Тестирует расчет расстояния Левенштейна между двумя непустыми строками - "opera" и "hopera" - расстояние 
+        /// Левенштейна между которыми равно одной вставке.
+        /// </summary>
+        [TestMethod]
+        public void CalcLevenshteinDistanceInsertionTest()
+        {
+            // arrange
+            ILevenshteinDistance levDistance = new WagnerFischer();
+
+            // act
+            int distance = levDistance.CalcLevenshteinDistance("opera", "hopera");
+
+            // assert
+            Assert.AreEqual(levDistance.InsertionWeight, distance);
+        }
+
+        /// <summary>
+        /// Тестирует расчет расстояния Левенштейна между двумя непустыми строками - "yandex" и "yardex" - расстояние 
+        /// Левенштейна между которыми равно одной замене.
+        /// </summary>
+        [TestMethod]
+        public void CalcLevenshteinDistanceReplacementTest()
+        {
+            // arrange
+            ILevenshteinDistance levDistance = new WagnerFischer();
+
+            // act
+            int distance = levDistance.CalcLevenshteinDistance("yandex", "yardex");
+
+            // assert
+            Assert.AreEqual(levDistance.ReplacementWeight, distance);
+        }
+
+        /// <summary>
+        /// Тестирует расчет расстояния Левенштейна между двумя непустыми строками - "distance" и "ditance" - расстояние 
+        /// Левенштейна между которыми равно одному удалению.
+        /// </summary>
+        [TestMethod]
+        public void CalcLevenshteinDistanceDeletionTest()
+        {
+            // arrange
+            ILevenshteinDistance levDistance = new WagnerFischer();
+
+            // act
+            int distance = levDistance.CalcLevenshteinDistance("distance", "ditance");
+
+            // assert
+            Assert.AreEqual(levDistance.DeletionWeight, distance);
+        }
+
+		/// <summary>
+        /// Тестирует расчет расстояния Левенштейна между двумя непустыми строками - "opera" и "ghosts", 
+        /// между которыми есть вставки и замены.
+        /// </summary>
+        [TestMethod]
+        public void CalcLevenshteinDistanceInsertionReplacementTest()
+        {
+            // arrange
+            ILevenshteinDistance levDistance = new WagnerFischer();
+            string testString1 = "opera";
+            string testString2 = "ghosts";
+
+            // act
+            int distance = levDistance.CalcLevenshteinDistance(testString1, testString2);
+
+            // assert
+            Assert.AreEqual(levDistance.ReplacementWeight * testString1.Length + 
+                    (testString2.Length - testString1.Length) * levDistance.InsertionWeight, distance);
+        }
+
+        /// <summary>
+        /// Тестирует расчет расстояния Левенштейна между двумя непустыми строками - "ghosts" и "opera",
+        /// между которыми есть удаления и замены.
+        /// </summary>
+        [TestMethod]
+        public void CalcLevenshteinDistanceDeletionReplacementTest()
+        {
+            // arrange
+            ILevenshteinDistance levDistance = new WagnerFischer();
+            string testString1 = "ghosts";
+            string testString2 = "opera";
+
+            // act
+            int distance = levDistance.CalcLevenshteinDistance(testString1, testString2);
+
+            // assert
+            Assert.AreEqual(levDistance.ReplacementWeight * testString2.Length +
+                    (testString1.Length - testString2.Length) * levDistance.DeletionWeight, distance);
+        }
+		
+		/// <summary>
+        /// Тестирует расчет расстояния Левенштейна между двумя непустыми строками одинаковыми строками - "excellent" - расстояние 
+        /// Левенштейна между которыми равно 0
+        /// </summary>
+        [TestMethod]
+        public void CalcLevenshteinDistanceEqualTest()
         {
             //arrange
-            WagnerFischer levDistance = new WagnerFischer();
-            int sampleDistance = 3;
+            ILevenshteinDistance levDistance = new WagnerFischer();
 
             //act
-            int distance = levDistance.CalcLevenshteinDistance("holera", "opera");
+            int distance = levDistance.CalcLevenshteinDistance("excellent", "excellent");
 
             //assert
-            Assert.AreEqual(sampleDistance, distance);
-        }
-
-        [TestMethod]
-        public void LevinsteinDistanceTest5()
-        {
-            //arrange
-            WagnerFischer levDistance = new WagnerFischer();
-            int sampleDistance = 5;
-
-            //act
-            int distance = levDistance.CalcLevenshteinDistance("opera", "ghost");
-
-            //assert
-            Assert.AreEqual(sampleDistance, distance);
-        }
-
-        [TestMethod]
-        public void LevinsteinDistanceTest6()
-        {
-            //arrange
-            WagnerFischer levDistance = new WagnerFischer();
-            int sampleDistance = 3;
-
-            //act
-            int distance = levDistance.CalcLevenshteinDistance("ditance", "distance");
-
-            //assert
-            Assert.AreEqual(sampleDistance, distance);
-        }
-
-        [TestMethod]
-        public void LevinsteinDistanceTest7()
-        {
-            //arrange
-            WagnerFischer levDistance = new WagnerFischer();
-            int sampleDistance = 3;
-
-            //act
-            int distance = levDistance.CalcLevenshteinDistance("yndeex", "yandex");
-
-            //assert
-            Assert.AreEqual(sampleDistance, distance);
+            Assert.AreEqual(0, distance);
         }
     }
 }

@@ -7,7 +7,7 @@
     <ProjectGuid>{B24C98C2-00F1-4C24-9C45-871143F1594C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>LevenshteinProcessing</RootNamespace>
+    <RootNamespace>WordsProcessing</RootNamespace>
     <AssemblyName>WordsProcessing</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Algorithms\WagnerFischer.cs" />
+    <Compile Include="DictionaryProvider.cs" />
     <Compile Include="ILevenshteinDistance.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WordsDictionary.cs" />
