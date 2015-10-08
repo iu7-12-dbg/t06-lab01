@@ -8,8 +8,7 @@ using WordsProcessing;
 namespace WordsProcessing.Algorithms
 {
     /// <summary>
-    /// Класс WagnerFischer
-    /// реализует расчет расстояние Левенштейна по алгоритму Вагнера-Фишера
+    /// Реализует расчет расстояние Левенштейна по алгоритму Вагнера-Фишера
     /// </summary>
     public class WagnerFischer : ILevenshteinDistance
     {
@@ -17,24 +16,36 @@ namespace WordsProcessing.Algorithms
         private int N;
         private int M;
 
-        private const int DELETE_WEIGHT = 2;
-        private const int REPLACE_WEIGHT = 1;
-        private const int INSERT_WEIGHT = 3;
+        /// <summary>
+        /// Возвращает и устанавливает вес удаления.
+        /// </summary>
+        public int DeletionWeight { get; set; }
 
         /// <summary>
-        /// Конструктор WagnerFischer
-        /// инициализирует объект класса WagnerFischer и заполняет члены начальными значениями
+        /// Возвращает и устанавливает вес замены.
+        /// </summary>
+        public int ReplacementWeight { get; set; }
+
+        /// <summary>
+        /// Возвращает и устанавливает вес вставки.
+        /// </summary>
+        public int InsertionWeight { get; set; }
+
+        /// <summary>
+        /// Инициализирует объект класса WagnerFischer и заполняет члены начальными значениями
         /// </summary>
         public WagnerFischer() 
         {
             matrix = new List<List<int>>();
             N = 0;
             M = 0;
+            DeletionWeight = 2;
+            ReplacementWeight = 1;
+            InsertionWeight = 3;
         }
 
         /// <summary>
-        /// Метод CreateMatrix
-        /// создаёт матрицу, используемую для расчета расстояния Левенштейна
+        /// Создаёт матрицу, используемую для расчета расстояния Левенштейна
         /// </summary>
         /// <param name="rowsCount"></param>
         /// <param name="columnsCount"></param>
@@ -53,22 +64,20 @@ namespace WordsProcessing.Algorithms
         }
 
         /// <summary>
-        /// Метод FillMatrix
-        /// заполняет матрицу, используемую для расчета расстояния Левенштейна,
+        /// Заполняет матрицу, используемую для расчета расстояния Левенштейна,
         /// начальными значениями
         /// </summary>
         private void FillMatrix()
         {
             matrix[0][0] = 0;
             for (int i = 1; i < N; i++)
-                matrix[i][0] = i * DELETE_WEIGHT;
+                matrix[i][0] = i * DeletionWeight;
             for (int i = 1; i < M; i++)
-                matrix[0][i] = i * INSERT_WEIGHT;
+                matrix[0][i] = i * InsertionWeight;
         }
 
         /// <summary>
-        /// Метод Min
-        /// находит минимум из трёх чисел
+        /// Возвращает минимум из трёх чисел
         /// </summary>
         /// <param name="a"></param>
         /// <param name="b"></param>
@@ -83,18 +92,16 @@ namespace WordsProcessing.Algorithms
         }
 
         /// <summary>
-        /// Метод CalcLevenshteinDistance
-        /// рассчитывает расстояние Левенштейна, используя алгоритм Вагнера-Фишера
+        /// Рассчитывает расстояние Левенштейна, используя алгоритм Вагнера-Фишера
         /// </summary>
         /// <param name="firstString"></param>
         /// <param name="secondString"></param>
         /// <returns></returns>
         public int CalcLevenshteinDistance(string firstString, string secondString)
         {
-            if (firstString.Length == 0 || secondString.Length == 0)
-            {
-                throw new NullReferenceException();
-            }
+            if (firstString == null || secondString == null)
+                throw new ArgumentNullException();
+
             N = firstString.Length + 1;
             M = secondString.Length + 1;
 
@@ -105,8 +112,8 @@ namespace WordsProcessing.Algorithms
             {
                 for (int j = 1; j < M; j++)
                 {
-                    int diff = (firstString[i - 1] == secondString[j - 1]) ? 0 : REPLACE_WEIGHT;
-                    matrix[i][j] = Min(matrix[i - 1][j] + DELETE_WEIGHT, matrix[i][j - 1] + INSERT_WEIGHT,
+                    int diff = (firstString[i - 1] == secondString[j - 1]) ? 0 : ReplacementWeight;
+                    matrix[i][j] = Min(matrix[i - 1][j] + DeletionWeight, matrix[i][j - 1] + InsertionWeight,
                             matrix[i - 1][j - 1] + diff);
                 }
             }

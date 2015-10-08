@@ -104,7 +104,7 @@ namespace Lab1
             openFileDialog.Filter = "TXT files (*.txt)|*.txt|All files (*.*)|*.*";
             if (openFileDialog.ShowDialog(this) == DialogResult.OK)
             {
-                CustomWordsDictionary.FillDictionary(openFileDialog.FileName);
+                CustomWordsDictionary.Words = DictionaryProvider.ReadStringsFromFile(openFileDialog.FileName);
                 lblActiveDictionary.Text = "Активный словарь: " + openFileDialog.FileName;
                 btnFindClosestWords.Enabled = true;
             }
