@@ -10,46 +10,32 @@ using WordsProcessing.Algorithms;
 namespace WordsProcessing
 {
     /// <summary>
-    /// Класс WordsDictionary
-    /// содержит словарь слов, по которому осуществляет поиск слов
+    /// Содержит словарь слов, по которому осуществляет поиск слов
     /// с минимальным расстоянием Левенштейна по отношению к заданному слову
     /// </summary>
     public class WordsDictionary
     {
-        ILevenshteinDistance LevDistance { get; set; }
-        List<string> Words { get; set; }
-
         /// <summary>
-        /// Конструктор WordsDictionary
-        /// инициализирует объект класса и заполняет начальными значениями его члены
+        /// Инициализирует объект класса и заполняет начальными значениями его члены
         /// </summary>
-        public WordsDictionary(ILevenshteinDistance levDistance) 
+        public WordsDictionary(ILevenshteinDistance levDistance)
         {
             LevDistance = levDistance;
             Words = new List<string>();
         }
 
         /// <summary>
-        /// Метод FillDictionary
-        /// добавляет в словарь слова из файла с заданным именем
+        /// Возвращает и устанавливает объект-алгоритм расчёта расстояния Левенштейна.
         /// </summary>
-        /// <param name="dictionaryFileName"></param>
-        public void FillDictionary(string dictionaryFileName)
-        {
-            StreamReader file = new StreamReader(dictionaryFileName);
-            Words.Clear();
-            string line;
-            while ((line = file.ReadLine()) != null)
-            {
-                Words.Add(line);
-            }
-
-            file.Close();
-        }
+        ILevenshteinDistance LevDistance { get; set; }
 
         /// <summary>
-        /// Метод CreateDistanceList
-        /// рассчитывает расстояние Левенштейна между заданным словом
+        /// Возвращает и устанавливает коллекцию слов, по которым ведется поиск.
+        /// </summary>
+        public List<string> Words { get; set; }
+
+        /// <summary>
+        /// Рассчитывает расстояние Левенштейна между заданным словом
         /// и словами в словаре
         /// </summary>
         /// <param name="word"></param>
@@ -66,8 +52,7 @@ namespace WordsProcessing
         }
 
         /// <summary>
-        /// Метод GetListOfClosestWords
-        /// находит слова, для которых расстояние Левенштейна минимально среди всех рассчитанных расстояний;
+        /// Находит слова, для которых расстояние Левенштейна минимально среди всех рассчитанных расстояний;
         /// </summary>
         /// <param name="distanceList"></param>
         /// <returns></returns>
@@ -86,8 +71,7 @@ namespace WordsProcessing
         }
 
         /// <summary>
-        /// Метод GetClosestWords
-        /// находит все слова в словаре, для которых расстояние Левенштейна минимально
+        /// Находит все слова в словаре, для которых расстояние Левенштейна минимально
         /// </summary>
         /// <param name="word"></param>
         /// <returns></returns>

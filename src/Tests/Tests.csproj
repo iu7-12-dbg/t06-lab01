@@ -50,6 +50,9 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="MockLevenshteinDictionary.cs" />
+    <Compile Include="DictionaryProviderTest.cs" />
+    <Compile Include="WordsDictionaryTest.cs" />
     <Compile Include="WagnerFischerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

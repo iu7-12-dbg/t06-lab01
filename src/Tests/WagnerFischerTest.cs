@@ -16,11 +16,12 @@ namespace Tests
     public class WagnerFischerTest
     {
 		/// <summary>
-        /// Тестирует расчет расстояния Левенштейна между строкой, представляющей пустую ссылку, (1й аргумент) и непустой строкой (2й аргумент) - "Stroka2"
+        /// Тестирует расчет расстояния Левенштейна между строкой, представляющей пустую ссылку, 
+        /// (1й аргумент) и непустой строкой (2й аргумент) - "Stroka2"
         /// </summary>
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
-        public void WagnerFischerFirstNullArgumentTest()
+        public void CalcLevenshteinDistanceFirstNullArgumentTest()
         {
             // arrange
             ILevenshteinDistance levDistance = new WagnerFischer();
@@ -30,11 +31,12 @@ namespace Tests
         }
 
 		/// <summary>
-        /// Тестирует расчет расстояния Левенштейна между непустой строкой (1й аргумент) - "Stroka1" - и строкой, представляющей пустую ссылку (2й аргумент)
+        /// Тестирует расчет расстояния Левенштейна между непустой строкой (1й аргумент) - "Stroka1" - и строкой, 
+        /// представляющей пустую ссылку (2й аргумент)
         /// </summary>
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
-        public void WagnerFischerSecondNullArgumentTest()
+        public void CalcLevenshteinDistanceSecondNullArgumentTest()
         {
             // arrange
             ILevenshteinDistance levDistance = new WagnerFischer();
@@ -48,7 +50,7 @@ namespace Tests
         /// </summary>
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
-        public void WagnerFischerBothNullArgumentsTest()
+        public void CalcLevenshteinDistanceBothNullArgumentsTest()
         {
             // arrange
             ILevenshteinDistance levDistance = new WagnerFischer();
@@ -59,10 +61,11 @@ namespace Tests
 
 
 		/// <summary>
-        /// Тестирует расчет расстояния Левенштейна между пустой строкой (1й аргумент) и непустой строкой (2й аргумент) - "Stroka"
+        /// Тестирует расчет расстояния Левенштейна между пустой строкой (1й аргумент) и непустой 
+        /// строкой (2й аргумент) - "Stroka"
         /// </summary>
         [TestMethod]
-        public void WagnerFischerFirstEmptyStringTest()
+        public void CalcLevenshteinDistanceFirstEmptyStringTest()
         {
             // arrange
             ILevenshteinDistance levDistance = new WagnerFischer();
@@ -76,10 +79,11 @@ namespace Tests
         }
 
         /// <summary>
-        /// Тестирует расчет расстояния Левенштейна между непустой строкой (1й аргумент) и пустой строкой (2й аргумент) - "Stroka2"
+        /// Тестирует расчет расстояния Левенштейна между непустой строкой (1й аргумент) и пустой 
+        /// строкой (2й аргумент) - "Stroka2"
         /// </summary>
         [TestMethod]
-        public void WagnerFischerSecondEmptyStringTest()
+        public void CalcLevenshteinDistanceSecondEmptyStringTest()
         {
             // arrange
             ILevenshteinDistance levDistance = new WagnerFischer();
@@ -96,7 +100,7 @@ namespace Tests
         /// Тестирует расчет расстояния Левенштейна между двумя пустыми строками
         /// </summary>
         [TestMethod]
-        public void WagnerFischerBothEmptyStringTest()
+        public void CalcLevenshteinDistanceBothEmptyStringTest()
         {
             // arrange
             ILevenshteinDistance levDistance = new WagnerFischer();
@@ -113,7 +117,7 @@ namespace Tests
         /// Левенштейна между которыми равно одной вставке.
         /// </summary>
         [TestMethod]
-        public void WagnerFischerInsertionTest()
+        public void CalcLevenshteinDistanceInsertionTest()
         {
             // arrange
             ILevenshteinDistance levDistance = new WagnerFischer();
@@ -130,7 +134,7 @@ namespace Tests
         /// Левенштейна между которыми равно одной замене.
         /// </summary>
         [TestMethod]
-        public void WagnerFischerReplacementTest()
+        public void CalcLevenshteinDistanceReplacementTest()
         {
             // arrange
             ILevenshteinDistance levDistance = new WagnerFischer();
@@ -147,7 +151,7 @@ namespace Tests
         /// Левенштейна между которыми равно одному удалению.
         /// </summary>
         [TestMethod]
-        public void WagnerFischerDeletionTest()
+        public void CalcLevenshteinDistanceDeletionTest()
         {
             // arrange
             ILevenshteinDistance levDistance = new WagnerFischer();
@@ -164,7 +168,7 @@ namespace Tests
         /// между которыми есть вставки и замены.
         /// </summary>
         [TestMethod]
-        public void WagnerFischerInsertionReplacementTest()
+        public void CalcLevenshteinDistanceInsertionReplacementTest()
         {
             // arrange
             ILevenshteinDistance levDistance = new WagnerFischer();
@@ -184,7 +188,7 @@ namespace Tests
         /// между которыми есть удаления и замены.
         /// </summary>
         [TestMethod]
-        public void WagnerFischerDeletionReplacementTest()
+        public void CalcLevenshteinDistanceDeletionReplacementTest()
         {
             // arrange
             ILevenshteinDistance levDistance = new WagnerFischer();
@@ -204,7 +208,7 @@ namespace Tests
         /// Левенштейна между которыми равно 0
         /// </summary>
         [TestMethod]
-        public void WagnerFischerEqualTest()
+        public void CalcLevenshteinDistanceEqualTest()
         {
             //arrange
             ILevenshteinDistance levDistance = new WagnerFischer();
