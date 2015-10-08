@@ -7,7 +7,7 @@
     <ProjectGuid>{B24C98C2-00F1-4C24-9C45-871143F1594C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>LevenshteinProcessing</RootNamespace>
+    <RootNamespace>WordsProcessing</RootNamespace>
     <AssemblyName>WordsProcessing</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

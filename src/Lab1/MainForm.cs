@@ -29,19 +29,6 @@ namespace Lab1
             InitializeComponent();
             IKernel ninjectKernel = new StandardKernel(new NinjectConfigModule());
             CustomWordsDictionary = ninjectKernel.Get<WordsDictionary>();
-            try
-            {
-                string[] dictionaryFileNames = ConfigurationManager.AppSettings["DictionariesFileNames"].Split(';');
-                foreach (string dictionary in dictionaryFileNames)
-                {
-                    if (dictionary != "")
-                        CustomWordsDictionary.AddWordsToDictionary(dictionary);
-                }
-            }
-            catch (Exception exception)
-            {
-                MessageBox.Show(exception.Message);
-            }
         }
 
         WordsDictionary CustomWordsDictionary { get; set; }
@@ -95,6 +82,7 @@ namespace Lab1
         {
             Invoke(new Action<List<string>>(AddClosestWordsToList), task.Result);
             toolStripStatusLabel.Text = "Готово";
+            Invoke(new Action(() => lblWordsCount.Text = "Найдено слов: " + task.Result.Count.ToString()));
         }
 
         /// <summary>
@@ -106,6 +94,27 @@ namespace Lab1
         private void MainForm_Load(object sender, EventArgs e)
         {
             toolStripStatusLabel.Text = "";
+            lblActiveDictionary.Text = "Активный словарь отсутствует";
+            btnFindClosestWords.Enabled = false;
+            lblWordsCount.Text = "";
+        }
+
+        private void SelectDictionaryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openFileDialog.Filter = "TXT files (*.txt)|*.txt|All files (*.*)|*.*";
+            if (openFileDialog.ShowDialog(this) == DialogResult.OK)
+            {
+                CustomWordsDictionary.FillDictionary(openFileDialog.FileName);
+                lblActiveDictionary.Text = "Активный словарь: " + openFileDialog.FileName;
+                btnFindClosestWords.Enabled = true;
+            }
+        }
+
+        private void HelpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.MessageBox.Show("Для подробной информации о программе посетите " +
+                "https://github.com/iu7-12-dbg/t06-lab01/wiki/SoftwareRequirementsSpecification", "Справка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }
