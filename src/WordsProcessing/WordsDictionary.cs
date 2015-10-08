@@ -30,13 +30,14 @@ namespace WordsProcessing
         }
 
         /// <summary>
-        /// Метод AddWordsToDictionary
+        /// Метод FillDictionary
         /// добавляет в словарь слова из файла с заданным именем
         /// </summary>
         /// <param name="dictionaryFileName"></param>
-        public void AddWordsToDictionary(string dictionaryFileName)
+        public void FillDictionary(string dictionaryFileName)
         {
             StreamReader file = new StreamReader(dictionaryFileName);
+            Words.Clear();
             string line;
             while ((line = file.ReadLine()) != null)
             {
