@@ -38,7 +38,7 @@ namespace Lab1
         /// выводит в объект ListBox интерфейса список слов с минимальным редакционным расстоянием
         /// по отношению к введенному слову
         /// </summary>
-        /// <param name="closestWords"></param>
+        /// <param name="closestWords">Список слов с минимальным редакционным расстоянием</param>
         private void AddClosestWordsToList(List<string> closestWords)
         {
             lbClosestWords.Items.Clear();
@@ -54,8 +54,8 @@ namespace Lab1
         /// запускает в отдельном потоке поиск слов по словарю, у которых
         /// редакционное расстояние минимально по отношению к введенному слову
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">Отправитель</param>
+        /// <param name="e">Аргументы</param>
         private void btnFindClosestWords_Click(object sender, EventArgs e)
         {
             try
@@ -89,8 +89,8 @@ namespace Lab1
         /// Метод MainForm_Load
         /// обновляет интерфейс при его загрузке
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">Отправитель</param>
+        /// <param name="e">Аргументы</param>
         private void MainForm_Load(object sender, EventArgs e)
         {
             toolStripStatusLabel.Text = "";
@@ -99,6 +99,12 @@ namespace Lab1
             lblWordsCount.Text = "";
         }
 
+        /// <summary>
+        /// Метод SelectDictionaryToolStripMenuItem_Click
+        /// предоставляет возможность выбора словаря
+        /// </summary>
+        /// <param name="sender">Отправитель</param>
+        /// <param name="e">Аргументы</param>
         private void SelectDictionaryToolStripMenuItem_Click(object sender, EventArgs e)
         {
             openFileDialog.Filter = "TXT files (*.txt)|*.txt|All files (*.*)|*.*";
@@ -110,6 +116,12 @@ namespace Lab1
             }
         }
 
+        /// <summary>
+        /// Метод HelpToolStripMenuItem_Click
+        /// представляет информацию о программном продукте
+        /// </summary>
+        /// <param name="sender">Отправитель</param>
+        /// <param name="e">Аргументы</param>
         private void HelpToolStripMenuItem_Click(object sender, EventArgs e)
         {
             System.Windows.Forms.MessageBox.Show("Для подробной информации о программе посетите " +
