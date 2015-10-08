@@ -95,7 +95,7 @@ namespace Lab1
         {
             toolStripStatusLabel.Text = "";
             lblActiveDictionary.Text = "Активный словарь отсутствует";
-            btnFindClosestWords.Enabled = false;
+            //btnFindClosestWords.Enabled = false;
             lblWordsCount.Text = "";
         }
 
