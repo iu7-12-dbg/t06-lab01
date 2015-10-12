@@ -42,7 +42,121 @@ namespace Tests
             Mouse.Click(uIЗакрытьButton, new Point(22, 14));
         }
         
+        /// <summary>
+        /// Файл словаря должен выбираться через пункт меню Файл->Выбрать словарь, после чего он становится активным.
+        /// </summary>
+        public void FileSelectRecordedMethod()
+        {
+            #region Variable Declarations
+            WinMenuItem uIВыбратьсловарьMenuItem = this.UIЛабораторная1Window.UIMenuStripMenuBar.UIФайлMenuItem.UIВыбратьсловарьMenuItem;
+            WinEdit uIИмяEdit = this.UIОткрытиеWindow.UIItemWindow.UIDictionariesListItem.UIИмяEdit;
+            WinEdit uIИмяEdit1 = this.UIОткрытиеWindow.UIItemWindow1.UIProlingRustxtListItem.UIИмяEdit;
+            WinButton uIОткрытьButton = this.UIОткрытиеWindow.UIОткрытьWindow.UIОткрытьButton;
+            #endregion
+
+            // Click 'Файл' -> 'Выбрать словарь' menu item
+            Mouse.Click(uIВыбратьсловарьMenuItem, new Point(49, 7));
+
+            // Double-Click 'Имя' text box
+            Mouse.DoubleClick(uIИмяEdit, new Point(36, 14));
+
+            // Click 'Имя' text box
+            Mouse.Click(uIИмяEdit1, new Point(69, 12));
+
+            // Click '&Открыть' button
+            Mouse.Click(uIОткрытьButton, new Point(32, 17));
+        }
+        
+        /// <summary>
+        /// В специальном txtBox должно отображаться имя текущего активного словаря.
+        /// </summary>
+        public void FileSelectAssert()
+        {
+            #region Variable Declarations
+            WinEdit uITxtBxActiveDictionarEdit = this.UIЛабораторная1Window.UIОтсутствуетWindow.UITxtBxActiveDictionarEdit;
+            #endregion
+
+            // Verify that the 'Text' property of 'txtBxActiveDictionary' text box equals 'pro-lingRus.txt'
+            Assert.AreEqual(this.FileSelectAssertExpectedValues.UITxtBxActiveDictionarEditText, uITxtBxActiveDictionarEdit.Text);
+        }
+        
+        /// <summary>
+        /// В случае, если до этого уже был выбран какой-либо словарь, то он перестаёт быть активным и 
+        ///выгружается из памяти программы, а вместо него загружается новый.
+        /// </summary>
+        public void FileReselectRecordedMethod()
+        {
+            #region Variable Declarations
+            WinMenuItem uIВыбратьсловарьMenuItem = this.UIЛабораторная1Window.UIMenuStripMenuBar.UIФайлMenuItem.UIВыбратьсловарьMenuItem;
+            WinEdit uIИмяEdit = this.UIОткрытиеWindow.UIItemWindow.UIDictionariesListItem.UIИмяEdit;
+            WinEdit uIИмяEdit1 = this.UIОткрытиеWindow.UIItemWindow1.UIProlingRustxtListItem.UIИмяEdit;
+            WinButton uIОткрытьButton = this.UIОткрытиеWindow.UIОткрытьWindow.UIОткрытьButton;
+            WinEdit uIИмяEdit2 = this.UIОткрытиеWindow.UIItemWindow1.UIUKtxtListItem.UIИмяEdit;
+            #endregion
+
+            // Click 'Файл' -> 'Выбрать словарь' menu item
+            Mouse.Click(uIВыбратьсловарьMenuItem, new Point(65, 4));
+
+            // Double-Click 'Имя' text box
+            Mouse.DoubleClick(uIИмяEdit, new Point(63, 13));
+
+            // Click 'Имя' text box
+            Mouse.Click(uIИмяEdit1, new Point(100, 13));
+
+            // Click '&Открыть' button
+            Mouse.Click(uIОткрытьButton, new Point(40, 11));
+
+            // Click 'Файл' -> 'Выбрать словарь' menu item
+            Mouse.Click(uIВыбратьсловарьMenuItem, new Point(30, 13));
+
+            // Double-Click 'Имя' text box
+            Mouse.DoubleClick(uIИмяEdit, new Point(59, 7));
+
+            // Click 'Имя' text box
+            Mouse.Click(uIИмяEdit2, new Point(56, 9));
+
+            // Click '&Открыть' button
+            Mouse.Click(uIОткрытьButton, new Point(35, 9));
+        }
+        
+        /// <summary>
+        /// В специальном txtBox должно отображаться имя нового активного словаря.
+        /// </summary>
+        public void FileReselectAssert()
+        {
+            #region Variable Declarations
+            WinEdit uITxtBxActiveDictionarEdit = this.UIЛабораторная1Window.UIОтсутствуетWindow.UITxtBxActiveDictionarEdit;
+            #endregion
+
+            // Verify that the 'Text' property of 'txtBxActiveDictionary' text box equals 'UK.txt'
+            Assert.AreEqual(this.FileReselectAssertExpectedValues.UITxtBxActiveDictionarEditText, uITxtBxActiveDictionarEdit.Text);
+        }
+        
         #region Properties
+        public virtual FileSelectAssertExpectedValues FileSelectAssertExpectedValues
+        {
+            get
+            {
+                if ((this.mFileSelectAssertExpectedValues == null))
+                {
+                    this.mFileSelectAssertExpectedValues = new FileSelectAssertExpectedValues();
+                }
+                return this.mFileSelectAssertExpectedValues;
+            }
+        }
+        
+        public virtual FileReselectAssertExpectedValues FileReselectAssertExpectedValues
+        {
+            get
+            {
+                if ((this.mFileReselectAssertExpectedValues == null))
+                {
+                    this.mFileReselectAssertExpectedValues = new FileReselectAssertExpectedValues();
+                }
+                return this.mFileReselectAssertExpectedValues;
+            }
+        }
+        
         public UIЛабораторная1Window UIЛабораторная1Window
         {
             get
@@ -54,10 +168,58 @@ namespace Tests
                 return this.mUIЛабораторная1Window;
             }
         }
+        
+        public UIОткрытиеWindow UIОткрытиеWindow
+        {
+            get
+            {
+                if ((this.mUIОткрытиеWindow == null))
+                {
+                    this.mUIОткрытиеWindow = new UIОткрытиеWindow();
+                }
+                return this.mUIОткрытиеWindow;
+            }
+        }
         #endregion
         
         #region Fields
+        private FileSelectAssertExpectedValues mFileSelectAssertExpectedValues;
+        
+        private FileReselectAssertExpectedValues mFileReselectAssertExpectedValues;
+        
         private UIЛабораторная1Window mUIЛабораторная1Window;
+        
+        private UIОткрытиеWindow mUIОткрытиеWindow;
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parameters to be passed into 'FileSelectAssert'
+    /// </summary>
+    [GeneratedCode("Coded UITest Builder", "12.0.21005.1")]
+    public class FileSelectAssertExpectedValues
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Verify that the 'Text' property of 'txtBxActiveDictionary' text box equals 'pro-lingRus.txt'
+        /// </summary>
+        public string UITxtBxActiveDictionarEditText = "pro-lingRus.txt";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parameters to be passed into 'FileReselectAssert'
+    /// </summary>
+    [GeneratedCode("Coded UITest Builder", "12.0.21005.1")]
+    public class FileReselectAssertExpectedValues
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Verify that the 'Text' property of 'txtBxActiveDictionary' text box equals 'UK.txt'
+        /// </summary>
+        public string UITxtBxActiveDictionarEditText = "UK.txt";
         #endregion
     }
     
@@ -86,10 +248,38 @@ namespace Tests
                 return this.mUIЛабораторная1TitleBar;
             }
         }
+        
+        public UIMenuStripMenuBar UIMenuStripMenuBar
+        {
+            get
+            {
+                if ((this.mUIMenuStripMenuBar == null))
+                {
+                    this.mUIMenuStripMenuBar = new UIMenuStripMenuBar(this);
+                }
+                return this.mUIMenuStripMenuBar;
+            }
+        }
+        
+        public UIОтсутствуетWindow UIОтсутствуетWindow
+        {
+            get
+            {
+                if ((this.mUIОтсутствуетWindow == null))
+                {
+                    this.mUIОтсутствуетWindow = new UIОтсутствуетWindow(this);
+                }
+                return this.mUIОтсутствуетWindow;
+            }
+        }
         #endregion
         
         #region Fields
         private UIЛабораторная1TitleBar mUIЛабораторная1TitleBar;
+        
+        private UIMenuStripMenuBar mUIMenuStripMenuBar;
+        
+        private UIОтсутствуетWindow mUIОтсутствуетWindow;
         #endregion
     }
     
@@ -125,6 +315,395 @@ namespace Tests
         
         #region Fields
         private WinButton mUIЗакрытьButton;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "12.0.21005.1")]
+    public class UIMenuStripMenuBar : WinMenuBar
+    {
+        
+        public UIMenuStripMenuBar(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinMenu.PropertyNames.Name] = "menuStrip";
+            this.WindowTitles.Add("Лабораторная 1");
+            #endregion
+        }
+        
+        #region Properties
+        public UIФайлMenuItem UIФайлMenuItem
+        {
+            get
+            {
+                if ((this.mUIФайлMenuItem == null))
+                {
+                    this.mUIФайлMenuItem = new UIФайлMenuItem(this);
+                }
+                return this.mUIФайлMenuItem;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIФайлMenuItem mUIФайлMenuItem;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "12.0.21005.1")]
+    public class UIФайлMenuItem : WinMenuItem
+    {
+        
+        public UIФайлMenuItem(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinMenuItem.PropertyNames.Name] = "Файл";
+            this.WindowTitles.Add("Лабораторная 1");
+            #endregion
+        }
+        
+        #region Properties
+        public WinMenuItem UIВыбратьсловарьMenuItem
+        {
+            get
+            {
+                if ((this.mUIВыбратьсловарьMenuItem == null))
+                {
+                    this.mUIВыбратьсловарьMenuItem = new WinMenuItem(this);
+                    #region Search Criteria
+                    this.mUIВыбратьсловарьMenuItem.SearchProperties[WinMenuItem.PropertyNames.Name] = "Выбрать словарь";
+                    this.mUIВыбратьсловарьMenuItem.SearchConfigurations.Add(SearchConfiguration.ExpandWhileSearching);
+                    this.mUIВыбратьсловарьMenuItem.WindowTitles.Add("Лабораторная 1");
+                    #endregion
+                }
+                return this.mUIВыбратьсловарьMenuItem;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinMenuItem mUIВыбратьсловарьMenuItem;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "12.0.21005.1")]
+    public class UIОтсутствуетWindow : WinWindow
+    {
+        
+        public UIОтсутствуетWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "txtBxActiveDictionary";
+            this.WindowTitles.Add("Лабораторная 1");
+            #endregion
+        }
+        
+        #region Properties
+        public WinEdit UITxtBxActiveDictionarEdit
+        {
+            get
+            {
+                if ((this.mUITxtBxActiveDictionarEdit == null))
+                {
+                    this.mUITxtBxActiveDictionarEdit = new WinEdit(this);
+                    #region Search Criteria
+                    this.mUITxtBxActiveDictionarEdit.SearchProperties[WinEdit.PropertyNames.Name] = "Активный словарь:";
+                    this.mUITxtBxActiveDictionarEdit.WindowTitles.Add("Лабораторная 1");
+                    #endregion
+                }
+                return this.mUITxtBxActiveDictionarEdit;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinEdit mUITxtBxActiveDictionarEdit;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "12.0.21005.1")]
+    public class UIОткрытиеWindow : WinWindow
+    {
+        
+        public UIОткрытиеWindow()
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.Name] = "Открытие";
+            this.SearchProperties[WinWindow.PropertyNames.ClassName] = "#32770";
+            this.WindowTitles.Add("Открытие");
+            #endregion
+        }
+        
+        #region Properties
+        public UIItemWindow UIItemWindow
+        {
+            get
+            {
+                if ((this.mUIItemWindow == null))
+                {
+                    this.mUIItemWindow = new UIItemWindow(this);
+                }
+                return this.mUIItemWindow;
+            }
+        }
+        
+        public UIItemWindow1 UIItemWindow1
+        {
+            get
+            {
+                if ((this.mUIItemWindow1 == null))
+                {
+                    this.mUIItemWindow1 = new UIItemWindow1(this);
+                }
+                return this.mUIItemWindow1;
+            }
+        }
+        
+        public UIОткрытьWindow UIОткрытьWindow
+        {
+            get
+            {
+                if ((this.mUIОткрытьWindow == null))
+                {
+                    this.mUIОткрытьWindow = new UIОткрытьWindow(this);
+                }
+                return this.mUIОткрытьWindow;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIItemWindow mUIItemWindow;
+        
+        private UIItemWindow1 mUIItemWindow1;
+        
+        private UIОткрытьWindow mUIОткрытьWindow;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "12.0.21005.1")]
+    public class UIItemWindow : WinWindow
+    {
+        
+        public UIItemWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.AccessibleName] = "Просмотр элементов";
+            this.SearchProperties[WinWindow.PropertyNames.ClassName] = "DirectUIHWND";
+            this.WindowTitles.Add("Открытие");
+            #endregion
+        }
+        
+        #region Properties
+        public UIDictionariesListItem UIDictionariesListItem
+        {
+            get
+            {
+                if ((this.mUIDictionariesListItem == null))
+                {
+                    this.mUIDictionariesListItem = new UIDictionariesListItem(this);
+                }
+                return this.mUIDictionariesListItem;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIDictionariesListItem mUIDictionariesListItem;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "12.0.21005.1")]
+    public class UIDictionariesListItem : WinListItem
+    {
+        
+        public UIDictionariesListItem(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinListItem.PropertyNames.Name] = "Dictionaries";
+            this.WindowTitles.Add("Открытие");
+            #endregion
+        }
+        
+        #region Properties
+        public WinEdit UIИмяEdit
+        {
+            get
+            {
+                if ((this.mUIИмяEdit == null))
+                {
+                    this.mUIИмяEdit = new WinEdit(this);
+                    #region Search Criteria
+                    this.mUIИмяEdit.SearchProperties[WinEdit.PropertyNames.Name] = "Имя";
+                    this.mUIИмяEdit.WindowTitles.Add("Открытие");
+                    #endregion
+                }
+                return this.mUIИмяEdit;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinEdit mUIИмяEdit;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "12.0.21005.1")]
+    public class UIItemWindow1 : WinWindow
+    {
+        
+        public UIItemWindow1(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.AccessibleName] = "Просмотр элементов";
+            this.SearchProperties[WinWindow.PropertyNames.ClassName] = "DirectUIHWND";
+            this.WindowTitles.Add("Открытие");
+            #endregion
+        }
+        
+        #region Properties
+        public UIProlingRustxtListItem UIProlingRustxtListItem
+        {
+            get
+            {
+                if ((this.mUIProlingRustxtListItem == null))
+                {
+                    this.mUIProlingRustxtListItem = new UIProlingRustxtListItem(this);
+                }
+                return this.mUIProlingRustxtListItem;
+            }
+        }
+        
+        public UIUKtxtListItem UIUKtxtListItem
+        {
+            get
+            {
+                if ((this.mUIUKtxtListItem == null))
+                {
+                    this.mUIUKtxtListItem = new UIUKtxtListItem(this);
+                }
+                return this.mUIUKtxtListItem;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIProlingRustxtListItem mUIProlingRustxtListItem;
+        
+        private UIUKtxtListItem mUIUKtxtListItem;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "12.0.21005.1")]
+    public class UIProlingRustxtListItem : WinListItem
+    {
+        
+        public UIProlingRustxtListItem(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinListItem.PropertyNames.Name] = "pro-lingRus.txt";
+            this.WindowTitles.Add("Открытие");
+            #endregion
+        }
+        
+        #region Properties
+        public WinEdit UIИмяEdit
+        {
+            get
+            {
+                if ((this.mUIИмяEdit == null))
+                {
+                    this.mUIИмяEdit = new WinEdit(this);
+                    #region Search Criteria
+                    this.mUIИмяEdit.SearchProperties[WinEdit.PropertyNames.Name] = "Имя";
+                    this.mUIИмяEdit.WindowTitles.Add("Открытие");
+                    #endregion
+                }
+                return this.mUIИмяEdit;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinEdit mUIИмяEdit;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "12.0.21005.1")]
+    public class UIUKtxtListItem : WinListItem
+    {
+        
+        public UIUKtxtListItem(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinListItem.PropertyNames.Name] = "UK.txt";
+            this.WindowTitles.Add("Открытие");
+            #endregion
+        }
+        
+        #region Properties
+        public WinEdit UIИмяEdit
+        {
+            get
+            {
+                if ((this.mUIИмяEdit == null))
+                {
+                    this.mUIИмяEdit = new WinEdit(this);
+                    #region Search Criteria
+                    this.mUIИмяEdit.SearchProperties[WinEdit.PropertyNames.Name] = "Имя";
+                    this.mUIИмяEdit.WindowTitles.Add("Открытие");
+                    #endregion
+                }
+                return this.mUIИмяEdit;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinEdit mUIИмяEdit;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "12.0.21005.1")]
+    public class UIОткрытьWindow : WinWindow
+    {
+        
+        public UIОткрытьWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlId] = "1";
+            this.WindowTitles.Add("Открытие");
+            #endregion
+        }
+        
+        #region Properties
+        public WinButton UIОткрытьButton
+        {
+            get
+            {
+                if ((this.mUIОткрытьButton == null))
+                {
+                    this.mUIОткрытьButton = new WinButton(this);
+                    #region Search Criteria
+                    this.mUIОткрытьButton.SearchProperties[WinButton.PropertyNames.Name] = "Открыть";
+                    this.mUIОткрытьButton.WindowTitles.Add("Открытие");
+                    #endregion
+                }
+                return this.mUIОткрытьButton;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinButton mUIОткрытьButton;
         #endregion
     }
 }

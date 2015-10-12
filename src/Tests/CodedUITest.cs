@@ -40,10 +40,27 @@ namespace Tests
             this.UIMap.CloseAppRecordedMethod();
         }
 
+        /// <summary>
+        /// Тестирует пункт 3.SelectDictionary.3.FileSelect функциональных требований.
+        /// Файл словаря должен выбираться через пункт меню Файл->Выбрать словарь, после чего он становится активным. 
+        /// </summary>
         [TestMethod]
-        public void CodedUITestMethod1()
+        public void FileSelectCodedUITest()
         {
-            // To generate code for this test, select "Generate Code for Coded UI Test" from the shortcut menu and select one of the menu items.
+            this.UIMap.FileSelectRecordedMethod();
+            this.UIMap.FileSelectAssert();
+        }
+
+        /// <summary>
+        /// 3.SelectDictionary.3.Reselect.
+        /// В случае, если до этого уже был выбран какой-либо словарь, то он перестаёт быть активным и 
+        /// выгружается из памяти программы, а вместо него загружается новый.  
+        /// </summary>
+        [TestMethod]
+        public void FileReselectCodedUITest()
+        {
+            this.UIMap.FileReselectRecordedMethod();
+            this.UIMap.FileReselectAssert();
         }
 
         #region Additional test attributes
