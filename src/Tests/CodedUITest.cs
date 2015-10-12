@@ -8,6 +8,7 @@ using Microsoft.VisualStudio.TestTools.UITesting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Microsoft.VisualStudio.TestTools.UITest.Extension;
 using Keyboard = Microsoft.VisualStudio.TestTools.UITesting.Keyboard;
+using System.Threading;
 
 
 namespace Tests
@@ -61,6 +62,15 @@ namespace Tests
         {
             this.UIMap.FileReselectRecordedMethod();
             this.UIMap.FileReselectAssert();
+        }
+
+        [TestMethod]
+        public void ResultViewCodedUITest()
+        {
+            this.UIMap.ResultViewManyRecordedMethod();
+            Thread.Sleep(3500);  // Даём время вычислительному потоку отработать доконца.
+            this.UIMap.ResultViewManyAssert();
+
         }
 
         #region Additional test attributes

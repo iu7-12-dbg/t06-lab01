@@ -83,7 +83,7 @@ namespace Lab1
         {
             Invoke(new Action<List<string>>(AddClosestWordsToList), task.Result);
             toolStripStatusLabel.Text = "Готово";
-            Invoke(new Action(() => lblWordsCount.Text = "Найдено слов: " + task.Result.Count.ToString()));
+            Invoke(new Action(() => txtBxWordsCount.Text = task.Result.Count.ToString()));
         }
 
         /// <summary>
@@ -96,7 +96,6 @@ namespace Lab1
         {
             toolStripStatusLabel.Text = "";
             btnFindClosestWords.Enabled = false;
-            lblWordsCount.Text = "";
         }
 
         /// <summary>

@@ -43,6 +43,7 @@
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.lblActiveDictionary = new System.Windows.Forms.Label();
             this.txtBxActiveDictionary = new System.Windows.Forms.TextBox();
+            this.txtBxWordsCount = new System.Windows.Forms.TextBox();
             this.statusStrip.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -143,11 +144,11 @@
             // lblWordsCount
             // 
             this.lblWordsCount.AutoSize = true;
-            this.lblWordsCount.Location = new System.Drawing.Point(246, 315);
+            this.lblWordsCount.Location = new System.Drawing.Point(246, 319);
             this.lblWordsCount.Name = "lblWordsCount";
-            this.lblWordsCount.Size = new System.Drawing.Size(76, 13);
+            this.lblWordsCount.Size = new System.Drawing.Size(154, 13);
             this.lblWordsCount.TabIndex = 7;
-            this.lblWordsCount.Text = "lblWordsCount";
+            this.lblWordsCount.Text = "Количество найденных слов:";
             // 
             // openFileDialog
             // 
@@ -171,11 +172,20 @@
             this.txtBxActiveDictionary.TabIndex = 10;
             this.txtBxActiveDictionary.Text = "Отсутствует";
             // 
+            // txtBxWordsCount
+            // 
+            this.txtBxWordsCount.Location = new System.Drawing.Point(406, 316);
+            this.txtBxWordsCount.Name = "txtBxWordsCount";
+            this.txtBxWordsCount.ReadOnly = true;
+            this.txtBxWordsCount.Size = new System.Drawing.Size(37, 20);
+            this.txtBxWordsCount.TabIndex = 11;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(533, 383);
+            this.Controls.Add(this.txtBxWordsCount);
             this.Controls.Add(this.txtBxActiveDictionary);
             this.Controls.Add(this.lblActiveDictionary);
             this.Controls.Add(this.lblWordsCount);
@@ -217,6 +227,7 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.Label lblActiveDictionary;
         private System.Windows.Forms.TextBox txtBxActiveDictionary;
+        private System.Windows.Forms.TextBox txtBxWordsCount;
     }
 }
 
