@@ -18,6 +18,7 @@ namespace WordsProcessing
         /// <summary>
         /// Инициализирует объект класса и заполняет начальными значениями его члены
         /// </summary>
+        /// <param name="levDistance">Объект-алгоритм расчёта расстояния Левенштейна</param>
         public WordsDictionary(ILevenshteinDistance levDistance)
         {
             LevDistance = levDistance;
@@ -38,8 +39,8 @@ namespace WordsProcessing
         /// Рассчитывает расстояние Левенштейна между заданным словом
         /// и словами в словаре
         /// </summary>
-        /// <param name="word"></param>
-        /// <returns></returns>
+        /// <param name="word">Заданное слово</param>
+        /// <returns>Список расстояний Левенштейна между заданным словом и словамя словаря</returns>
         private List<int> CreateDistanceList(string word)
         {
             List<int> distanceList = new List<int>();
@@ -54,8 +55,8 @@ namespace WordsProcessing
         /// <summary>
         /// Находит слова, для которых расстояние Левенштейна минимально среди всех рассчитанных расстояний;
         /// </summary>
-        /// <param name="distanceList"></param>
-        /// <returns></returns>
+        /// <param name="distanceList">Список расстояний Левенштейна между заданным словом и словамя словаря</param>
+        /// <returns>Список слов, для которых расстояние Левенштейна минимально</returns>
         private List<string> GetListOfClosestWords(List<int> distanceList)
         {
             List<string> closestWords = new List<string>();
@@ -73,8 +74,8 @@ namespace WordsProcessing
         /// <summary>
         /// Находит все слова в словаре, для которых расстояние Левенштейна минимально
         /// </summary>
-        /// <param name="word"></param>
-        /// <returns></returns>
+        /// <param name="word">Заданное слово</param>
+        /// <returns>Список слов, для которых расстояние Левенштейна минимально</returns>
         public List<string> GetClosestWords(string word)
         {
             List<int> distanceList = CreateDistanceList(word);

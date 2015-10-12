@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Configuration;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,7 +39,7 @@ namespace Lab1
         /// выводит в объект ListBox интерфейса список слов с минимальным редакционным расстоянием
         /// по отношению к введенному слову
         /// </summary>
-        /// <param name="closestWords"></param>
+        /// <param name="closestWords">Список слов с минимальным редакционным расстоянием</param>
         private void AddClosestWordsToList(List<string> closestWords)
         {
             lbClosestWords.Items.Clear();
@@ -54,8 +55,8 @@ namespace Lab1
         /// запускает в отдельном потоке поиск слов по словарю, у которых
         /// редакционное расстояние минимально по отношению к введенному слову
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">Отправитель</param>
+        /// <param name="e">Аргументы</param>
         private void btnFindClosestWords_Click(object sender, EventArgs e)
         {
             try
@@ -82,34 +83,45 @@ namespace Lab1
         {
             Invoke(new Action<List<string>>(AddClosestWordsToList), task.Result);
             toolStripStatusLabel.Text = "Готово";
-            Invoke(new Action(() => lblWordsCount.Text = "Найдено слов: " + task.Result.Count.ToString()));
+            Invoke(new Action(() => txtBxWordsCount.Text = task.Result.Count.ToString()));
         }
 
         /// <summary>
         /// Метод MainForm_Load
         /// обновляет интерфейс при его загрузке
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">Отправитель</param>
+        /// <param name="e">Аргументы</param>
         private void MainForm_Load(object sender, EventArgs e)
         {
             toolStripStatusLabel.Text = "";
-            lblActiveDictionary.Text = "Активный словарь отсутствует";
             btnFindClosestWords.Enabled = false;
-            lblWordsCount.Text = "";
         }
 
+        /// <summary>
+        /// Метод SelectDictionaryToolStripMenuItem_Click
+        /// предоставляет возможность выбора словаря
+        /// </summary>
+        /// <param name="sender">Отправитель</param>
+        /// <param name="e">Аргументы</param>
         private void SelectDictionaryToolStripMenuItem_Click(object sender, EventArgs e)
         {
             openFileDialog.Filter = "TXT files (*.txt)|*.txt|All files (*.*)|*.*";
+            openFileDialog.InitialDirectory = Environment.CurrentDirectory;
             if (openFileDialog.ShowDialog(this) == DialogResult.OK)
             {
                 CustomWordsDictionary.Words = DictionaryProvider.ReadStringsFromFile(openFileDialog.FileName);
-                lblActiveDictionary.Text = "Активный словарь: " + openFileDialog.FileName;
+                txtBxActiveDictionary.Text = Path.GetFileName(openFileDialog.FileName);
                 btnFindClosestWords.Enabled = true;
             }
         }
 
+        /// <summary>
+        /// Метод HelpToolStripMenuItem_Click
+        /// представляет информацию о программном продукте
+        /// </summary>
+        /// <param name="sender">Отправитель</param>
+        /// <param name="e">Аргументы</param>
         private void HelpToolStripMenuItem_Click(object sender, EventArgs e)
         {
             System.Windows.Forms.MessageBox.Show("Для подробной информации о программе посетите " +

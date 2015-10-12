@@ -29,9 +29,9 @@ namespace WordsProcessing
         /// <summary>
         /// Рассчитывает расстояние Левенштейна между двумя строками
         /// </summary>
-        /// <param name="firstString"></param>
-        /// <param name="secondString"></param>
-        /// <returns></returns>
+        /// <param name="firstString">Первая строка</param>
+        /// <param name="secondString">Вторая строка</param>
+        /// <returns>Расстояние Левенштейна между двумя строками</returns>
         int CalcLevenshteinDistance(string firstString, string secondString);
     }
 }

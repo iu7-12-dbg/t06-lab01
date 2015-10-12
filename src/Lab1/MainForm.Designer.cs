@@ -42,6 +42,8 @@
             this.lblWordsCount = new System.Windows.Forms.Label();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.lblActiveDictionary = new System.Windows.Forms.Label();
+            this.txtBxActiveDictionary = new System.Windows.Forms.TextBox();
+            this.txtBxWordsCount = new System.Windows.Forms.TextBox();
             this.statusStrip.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -142,11 +144,11 @@
             // lblWordsCount
             // 
             this.lblWordsCount.AutoSize = true;
-            this.lblWordsCount.Location = new System.Drawing.Point(246, 315);
+            this.lblWordsCount.Location = new System.Drawing.Point(246, 319);
             this.lblWordsCount.Name = "lblWordsCount";
-            this.lblWordsCount.Size = new System.Drawing.Size(76, 13);
+            this.lblWordsCount.Size = new System.Drawing.Size(154, 13);
             this.lblWordsCount.TabIndex = 7;
-            this.lblWordsCount.Text = "lblWordsCount";
+            this.lblWordsCount.Text = "Количество найденных слов:";
             // 
             // openFileDialog
             // 
@@ -157,15 +159,34 @@
             this.lblActiveDictionary.AutoSize = true;
             this.lblActiveDictionary.Location = new System.Drawing.Point(9, 338);
             this.lblActiveDictionary.Name = "lblActiveDictionary";
-            this.lblActiveDictionary.Size = new System.Drawing.Size(94, 13);
+            this.lblActiveDictionary.Size = new System.Drawing.Size(105, 13);
             this.lblActiveDictionary.TabIndex = 9;
-            this.lblActiveDictionary.Text = "lblActiveDictionary";
+            this.lblActiveDictionary.Text = "Активный словарь:";
+            // 
+            // txtBxActiveDictionary
+            // 
+            this.txtBxActiveDictionary.Location = new System.Drawing.Point(120, 335);
+            this.txtBxActiveDictionary.Name = "txtBxActiveDictionary";
+            this.txtBxActiveDictionary.ReadOnly = true;
+            this.txtBxActiveDictionary.Size = new System.Drawing.Size(113, 20);
+            this.txtBxActiveDictionary.TabIndex = 10;
+            this.txtBxActiveDictionary.Text = "Отсутствует";
+            // 
+            // txtBxWordsCount
+            // 
+            this.txtBxWordsCount.Location = new System.Drawing.Point(406, 316);
+            this.txtBxWordsCount.Name = "txtBxWordsCount";
+            this.txtBxWordsCount.ReadOnly = true;
+            this.txtBxWordsCount.Size = new System.Drawing.Size(37, 20);
+            this.txtBxWordsCount.TabIndex = 11;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(533, 383);
+            this.Controls.Add(this.txtBxWordsCount);
+            this.Controls.Add(this.txtBxActiveDictionary);
             this.Controls.Add(this.lblActiveDictionary);
             this.Controls.Add(this.lblWordsCount);
             this.Controls.Add(this.statusStrip);
@@ -205,6 +226,8 @@
         private System.Windows.Forms.Label lblWordsCount;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.Label lblActiveDictionary;
+        private System.Windows.Forms.TextBox txtBxActiveDictionary;
+        private System.Windows.Forms.TextBox txtBxWordsCount;
     }
 }
 

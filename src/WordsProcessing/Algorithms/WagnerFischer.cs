@@ -47,8 +47,8 @@ namespace WordsProcessing.Algorithms
         /// <summary>
         /// Создаёт матрицу, используемую для расчета расстояния Левенштейна
         /// </summary>
-        /// <param name="rowsCount"></param>
-        /// <param name="columnsCount"></param>
+        /// <param name="rowsCount">Количество строк в матрице</param>
+        /// <param name="columnsCount">Количество столбцов в матрице</param>
         private void CreateMatrix(int rowsCount, int columnsCount)
         {
             matrix.Clear();
@@ -79,10 +79,10 @@ namespace WordsProcessing.Algorithms
         /// <summary>
         /// Возвращает минимум из трёх чисел
         /// </summary>
-        /// <param name="a"></param>
-        /// <param name="b"></param>
-        /// <param name="c"></param>
-        /// <returns></returns>
+        /// <param name="a">Первое число</param>
+        /// <param name="b">Второе число</param>
+        /// <param name="c">Третье число</param>
+        /// <returns>Минимальное число</returns>
         private int Min(int a, int b, int c)
         {
             int min = (a < b) ? a : b;
@@ -94,9 +94,9 @@ namespace WordsProcessing.Algorithms
         /// <summary>
         /// Рассчитывает расстояние Левенштейна, используя алгоритм Вагнера-Фишера
         /// </summary>
-        /// <param name="firstString"></param>
-        /// <param name="secondString"></param>
-        /// <returns></returns>
+        /// <param name="firstString">Первая строка</param>
+        /// <param name="secondString">Вторая строка</param>
+        /// <returns>Расстояние Левенштейна</returns>
         public int CalcLevenshteinDistance(string firstString, string secondString)
         {
             if (firstString == null || secondString == null)
