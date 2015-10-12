@@ -43,41 +43,16 @@ namespace Tests
         }
         
         /// <summary>
-        /// Файл словаря должен выбираться через пункт меню Файл->Выбрать словарь, после чего он становится активным.
+        /// В специальном txtBox должно отображаться имя нового активного словаря.
         /// </summary>
-        public void FileSelectRecordedMethod()
-        {
-            #region Variable Declarations
-            WinMenuItem uIВыбратьсловарьMenuItem = this.UIЛабораторная1Window.UIMenuStripMenuBar.UIФайлMenuItem.UIВыбратьсловарьMenuItem;
-            WinEdit uIИмяEdit = this.UIОткрытиеWindow.UIItemWindow.UIDictionariesListItem.UIИмяEdit;
-            WinEdit uIИмяEdit1 = this.UIОткрытиеWindow.UIItemWindow1.UIProlingRustxtListItem.UIИмяEdit;
-            WinButton uIОткрытьButton = this.UIОткрытиеWindow.UIОткрытьWindow.UIОткрытьButton;
-            #endregion
-
-            // Click 'Файл' -> 'Выбрать словарь' menu item
-            Mouse.Click(uIВыбратьсловарьMenuItem, new Point(49, 7));
-
-            // Double-Click 'Имя' text box
-            Mouse.DoubleClick(uIИмяEdit, new Point(36, 14));
-
-            // Click 'Имя' text box
-            Mouse.Click(uIИмяEdit1, new Point(69, 12));
-
-            // Click '&Открыть' button
-            Mouse.Click(uIОткрытьButton, new Point(32, 17));
-        }
-        
-        /// <summary>
-        /// В специальном txtBox должно отображаться имя текущего активного словаря.
-        /// </summary>
-        public void FileSelectAssert()
+        public void FileReselectAssert()
         {
             #region Variable Declarations
             WinEdit uITxtBxActiveDictionarEdit = this.UIЛабораторная1Window.UIОтсутствуетWindow.UITxtBxActiveDictionarEdit;
             #endregion
 
-            // Verify that the 'Text' property of 'txtBxActiveDictionary' text box equals 'pro-lingRus.txt'
-            Assert.AreEqual(this.FileSelectAssertExpectedValues.UITxtBxActiveDictionarEditText, uITxtBxActiveDictionarEdit.Text);
+            // Verify that the 'Text' property of 'txtBxActiveDictionary' text box equals 'UK.txt'
+            Assert.AreEqual(this.FileReselectAssertExpectedValues.UITxtBxActiveDictionarEditText, uITxtBxActiveDictionarEdit.Text);
         }
         
         /// <summary>
@@ -120,16 +95,67 @@ namespace Tests
         }
         
         /// <summary>
-        /// В специальном txtBox должно отображаться имя нового активного словаря.
+        /// В специальном txtBox должно отображаться имя текущего активного словаря.
         /// </summary>
-        public void FileReselectAssert()
+        public void FileSelectAssert()
         {
             #region Variable Declarations
             WinEdit uITxtBxActiveDictionarEdit = this.UIЛабораторная1Window.UIОтсутствуетWindow.UITxtBxActiveDictionarEdit;
             #endregion
 
-            // Verify that the 'Text' property of 'txtBxActiveDictionary' text box equals 'UK.txt'
-            Assert.AreEqual(this.FileReselectAssertExpectedValues.UITxtBxActiveDictionarEditText, uITxtBxActiveDictionarEdit.Text);
+            // Verify that the 'Text' property of 'txtBxActiveDictionary' text box equals 'pro-lingRus.txt'
+            Assert.AreEqual(this.FileSelectAssertExpectedValues.UITxtBxActiveDictionarEditText, uITxtBxActiveDictionarEdit.Text);
+        }
+        
+        /// <summary>
+        /// Файл словаря должен выбираться через пункт меню Файл->Выбрать словарь, после чего он становится активным.
+        /// </summary>
+        public void FileSelectRecordedMethod()
+        {
+            #region Variable Declarations
+            WinMenuItem uIВыбратьсловарьMenuItem = this.UIЛабораторная1Window.UIMenuStripMenuBar.UIФайлMenuItem.UIВыбратьсловарьMenuItem;
+            WinEdit uIИмяEdit = this.UIОткрытиеWindow.UIItemWindow.UIDictionariesListItem.UIИмяEdit;
+            WinEdit uIИмяEdit1 = this.UIОткрытиеWindow.UIItemWindow1.UIProlingRustxtListItem.UIИмяEdit;
+            WinButton uIОткрытьButton = this.UIОткрытиеWindow.UIОткрытьWindow.UIОткрытьButton;
+            #endregion
+
+            // Click 'Файл' -> 'Выбрать словарь' menu item
+            Mouse.Click(uIВыбратьсловарьMenuItem, new Point(49, 7));
+
+            // Double-Click 'Имя' text box
+            Mouse.DoubleClick(uIИмяEdit, new Point(36, 14));
+
+            // Click 'Имя' text box
+            Mouse.Click(uIИмяEdit1, new Point(69, 12));
+
+            // Click '&Открыть' button
+            Mouse.Click(uIОткрытьButton, new Point(32, 17));
+        }
+        
+        /// <summary>
+        /// Method for creation Listbox code-behind.
+        /// </summary>
+        public void ListBoxAssert()
+        {
+            #region Variable Declarations
+            WinList uILbClosestWordsList = this.UIЛабораторная1Window.UILbClosestWordsWindow.UILbClosestWordsList;
+            #endregion
+
+            // Verify that the 'ControlName' property of 'lbClosestWords' list box is not equal to 'null'
+            Assert.IsNotNull(uILbClosestWordsList.ControlName);
+        }
+        
+        /// <summary>
+        /// Проверяет верность выведенного значения количества найденных слов.
+        /// </summary>
+        public void ResultViewManyCountAssert()
+        {
+            #region Variable Declarations
+            WinEdit uITxtBxWordsCountEdit = this.UIЛабораторная1Window.UITxtBxWordsCountWindow.UITxtBxWordsCountEdit;
+            #endregion
+
+            // Verify that the 'Text' property of 'txtBxWordsCount' text box equals '8'
+            Assert.AreEqual(this.ResultViewManyCountAssertExpectedValues.UITxtBxWordsCountEditText, uITxtBxWordsCountEdit.Text);
         }
         
         /// <summary>
@@ -168,17 +194,62 @@ namespace Tests
         /// <summary>
         /// Проверяет верность выведенного значения количества найденных слов.
         /// </summary>
-        public void ResultViewManyAssert()
+        public void ResultViewSingleCountAssert()
         {
             #region Variable Declarations
             WinEdit uITxtBxWordsCountEdit = this.UIЛабораторная1Window.UITxtBxWordsCountWindow.UITxtBxWordsCountEdit;
             #endregion
 
-            // Verify that the 'Text' property of 'txtBxWordsCount' text box equals '8'
-            Assert.AreEqual(this.ResultViewManyAssertExpectedValues.UITxtBxWordsCountEditText, uITxtBxWordsCountEdit.Text);
+            // Verify that the 'Text' property of 'txtBxWordsCount' text box equals '1'
+            Assert.AreEqual(this.ResultViewSingleCountAssertExpectedValues.UITxtBxWordsCountEditText, uITxtBxWordsCountEdit.Text);
+        }
+        
+        /// <summary>
+        /// Найденное слово должно выводиться в специальный ListBox. Количество найденных слов должно отображаться в специальном TextBox.
+        /// </summary>
+        public void ResultViewSingleRecordedMethod()
+        {
+            #region Variable Declarations
+            WinMenuItem uIВыбратьсловарьMenuItem = this.UIЛабораторная1Window.UIMenuStripMenuBar.UIФайлMenuItem.UIВыбратьсловарьMenuItem;
+            WinEdit uIИмяEdit = this.UIОткрытиеWindow.UIItemWindow.UIDictionariesListItem.UIИмяEdit;
+            WinEdit uIИмяEdit1 = this.UIОткрытиеWindow.UIItemWindow1.UIUKtxtListItem.UIИмяEdit;
+            WinButton uIОткрытьButton = this.UIОткрытиеWindow.UIОткрытьWindow.UIОткрытьButton;
+            WinEdit uITxtInputWordEdit = this.UIЛабораторная1Window.UITxtInputWordWindow.UITxtInputWordEdit;
+            WinButton uIПоискButton = this.UIЛабораторная1Window.UIПоискWindow.UIПоискButton;
+            #endregion
+
+            // Click 'Файл' -> 'Выбрать словарь' menu item
+            Mouse.Click(uIВыбратьсловарьMenuItem, new Point(34, 2));
+
+            // Double-Click 'Имя' text box
+            Mouse.DoubleClick(uIИмяEdit, new Point(36, 10));
+
+            // Click 'Имя' text box
+            Mouse.Click(uIИмяEdit1, new Point(29, 11));
+
+            // Click '&Открыть' button
+            Mouse.Click(uIОткрытьButton, new Point(57, 13));
+
+            // Type 'testing' in 'txtInputWord' text box
+            uITxtInputWordEdit.Text = this.ResultViewSingleRecordedMethodParams.UITxtInputWordEditText;
+
+            // Click 'Поиск' button
+            Mouse.Click(uIПоискButton, new Point(63, 7));
         }
         
         #region Properties
+        public virtual FileReselectAssertExpectedValues FileReselectAssertExpectedValues
+        {
+            get
+            {
+                if ((this.mFileReselectAssertExpectedValues == null))
+                {
+                    this.mFileReselectAssertExpectedValues = new FileReselectAssertExpectedValues();
+                }
+                return this.mFileReselectAssertExpectedValues;
+            }
+        }
+        
         public virtual FileSelectAssertExpectedValues FileSelectAssertExpectedValues
         {
             get
@@ -191,15 +262,15 @@ namespace Tests
             }
         }
         
-        public virtual FileReselectAssertExpectedValues FileReselectAssertExpectedValues
+        public virtual ResultViewManyCountAssertExpectedValues ResultViewManyCountAssertExpectedValues
         {
             get
             {
-                if ((this.mFileReselectAssertExpectedValues == null))
+                if ((this.mResultViewManyCountAssertExpectedValues == null))
                 {
-                    this.mFileReselectAssertExpectedValues = new FileReselectAssertExpectedValues();
+                    this.mResultViewManyCountAssertExpectedValues = new ResultViewManyCountAssertExpectedValues();
                 }
-                return this.mFileReselectAssertExpectedValues;
+                return this.mResultViewManyCountAssertExpectedValues;
             }
         }
         
@@ -215,15 +286,27 @@ namespace Tests
             }
         }
         
-        public virtual ResultViewManyAssertExpectedValues ResultViewManyAssertExpectedValues
+        public virtual ResultViewSingleCountAssertExpectedValues ResultViewSingleCountAssertExpectedValues
         {
             get
             {
-                if ((this.mResultViewManyAssertExpectedValues == null))
+                if ((this.mResultViewSingleCountAssertExpectedValues == null))
                 {
-                    this.mResultViewManyAssertExpectedValues = new ResultViewManyAssertExpectedValues();
+                    this.mResultViewSingleCountAssertExpectedValues = new ResultViewSingleCountAssertExpectedValues();
                 }
-                return this.mResultViewManyAssertExpectedValues;
+                return this.mResultViewSingleCountAssertExpectedValues;
+            }
+        }
+        
+        public virtual ResultViewSingleRecordedMethodParams ResultViewSingleRecordedMethodParams
+        {
+            get
+            {
+                if ((this.mResultViewSingleRecordedMethodParams == null))
+                {
+                    this.mResultViewSingleRecordedMethodParams = new ResultViewSingleRecordedMethodParams();
+                }
+                return this.mResultViewSingleRecordedMethodParams;
             }
         }
         
@@ -253,32 +336,21 @@ namespace Tests
         #endregion
         
         #region Fields
+        private FileReselectAssertExpectedValues mFileReselectAssertExpectedValues;
+        
         private FileSelectAssertExpectedValues mFileSelectAssertExpectedValues;
         
-        private FileReselectAssertExpectedValues mFileReselectAssertExpectedValues;
+        private ResultViewManyCountAssertExpectedValues mResultViewManyCountAssertExpectedValues;
         
         private ResultViewManyRecordedMethodParams mResultViewManyRecordedMethodParams;
         
-        private ResultViewManyAssertExpectedValues mResultViewManyAssertExpectedValues;
+        private ResultViewSingleCountAssertExpectedValues mResultViewSingleCountAssertExpectedValues;
+        
+        private ResultViewSingleRecordedMethodParams mResultViewSingleRecordedMethodParams;
         
         private UIЛабораторная1Window mUIЛабораторная1Window;
         
         private UIОткрытиеWindow mUIОткрытиеWindow;
-        #endregion
-    }
-    
-    /// <summary>
-    /// Parameters to be passed into 'FileSelectAssert'
-    /// </summary>
-    [GeneratedCode("Coded UITest Builder", "12.0.21005.1")]
-    public class FileSelectAssertExpectedValues
-    {
-        
-        #region Fields
-        /// <summary>
-        /// Verify that the 'Text' property of 'txtBxActiveDictionary' text box equals 'pro-lingRus.txt'
-        /// </summary>
-        public string UITxtBxActiveDictionarEditText = "pro-lingRus.txt";
         #endregion
     }
     
@@ -298,6 +370,36 @@ namespace Tests
     }
     
     /// <summary>
+    /// Parameters to be passed into 'FileSelectAssert'
+    /// </summary>
+    [GeneratedCode("Coded UITest Builder", "12.0.21005.1")]
+    public class FileSelectAssertExpectedValues
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Verify that the 'Text' property of 'txtBxActiveDictionary' text box equals 'pro-lingRus.txt'
+        /// </summary>
+        public string UITxtBxActiveDictionarEditText = "pro-lingRus.txt";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parameters to be passed into 'ResultViewManyCountAssert'
+    /// </summary>
+    [GeneratedCode("Coded UITest Builder", "12.0.21005.1")]
+    public class ResultViewManyCountAssertExpectedValues
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Verify that the 'Text' property of 'txtBxWordsCount' text box equals '8'
+        /// </summary>
+        public string UITxtBxWordsCountEditText = "8";
+        #endregion
+    }
+    
+    /// <summary>
     /// Parameters to be passed into 'ResultViewManyRecordedMethod'
     /// </summary>
     [GeneratedCode("Coded UITest Builder", "12.0.21005.1")]
@@ -313,17 +415,32 @@ namespace Tests
     }
     
     /// <summary>
-    /// Parameters to be passed into 'ResultViewManyAssert'
+    /// Parameters to be passed into 'ResultViewSingleCountAssert'
     /// </summary>
     [GeneratedCode("Coded UITest Builder", "12.0.21005.1")]
-    public class ResultViewManyAssertExpectedValues
+    public class ResultViewSingleCountAssertExpectedValues
     {
         
         #region Fields
         /// <summary>
-        /// Verify that the 'Text' property of 'txtBxWordsCount' text box equals '8'
+        /// Verify that the 'Text' property of 'txtBxWordsCount' text box equals '1'
         /// </summary>
-        public string UITxtBxWordsCountEditText = "8";
+        public string UITxtBxWordsCountEditText = "1";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parameters to be passed into 'ResultViewSingleRecordedMethod'
+    /// </summary>
+    [GeneratedCode("Coded UITest Builder", "12.0.21005.1")]
+    public class ResultViewSingleRecordedMethodParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Type 'testing' in 'txtInputWord' text box
+        /// </summary>
+        public string UITxtInputWordEditText = "testing";
         #endregion
     }
     
@@ -412,6 +529,18 @@ namespace Tests
                 return this.mUITxtBxWordsCountWindow;
             }
         }
+        
+        public UILbClosestWordsWindow UILbClosestWordsWindow
+        {
+            get
+            {
+                if ((this.mUILbClosestWordsWindow == null))
+                {
+                    this.mUILbClosestWordsWindow = new UILbClosestWordsWindow(this);
+                }
+                return this.mUILbClosestWordsWindow;
+            }
+        }
         #endregion
         
         #region Fields
@@ -426,6 +555,8 @@ namespace Tests
         private UIПоискWindow mUIПоискWindow;
         
         private UITxtBxWordsCountWindow mUITxtBxWordsCountWindow;
+        
+        private UILbClosestWordsWindow mUILbClosestWordsWindow;
         #endregion
     }
     
@@ -672,6 +803,42 @@ namespace Tests
         
         #region Fields
         private WinEdit mUITxtBxWordsCountEdit;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "12.0.21005.1")]
+    public class UILbClosestWordsWindow : WinWindow
+    {
+        
+        public UILbClosestWordsWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "lbClosestWords";
+            this.WindowTitles.Add("Лабораторная 1");
+            #endregion
+        }
+        
+        #region Properties
+        public WinList UILbClosestWordsList
+        {
+            get
+            {
+                if ((this.mUILbClosestWordsList == null))
+                {
+                    this.mUILbClosestWordsList = new WinList(this);
+                    #region Search Criteria
+                    this.mUILbClosestWordsList.SearchProperties[WinList.PropertyNames.Name] = "Слово для поиска:";
+                    this.mUILbClosestWordsList.WindowTitles.Add("Лабораторная 1");
+                    #endregion
+                }
+                return this.mUILbClosestWordsList;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinList mUILbClosestWordsList;
         #endregion
     }
     

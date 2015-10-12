@@ -59,60 +59,15 @@
       <WorkItemId>0</WorkItemId>
       <MarkerRegionType>Action</MarkerRegionType>
     </TestStepMarkerAction>
-    <MouseAction UIObjectName="UIMap.UIЛабораторная1Window.UIMenuStripMenuBar.UIФайлMenuItem.UIВыбратьсловарьMenuItem">
-      <ParameterName />
-      <ModifierKeys>None</ModifierKeys>
-      <IsGlobalHotkey>false</IsGlobalHotkey>
-      <Location X="49" Y="7" />
-      <WheelDirection>0</WheelDirection>
-      <ActionType>Click</ActionType>
-      <MouseButton>Left</MouseButton>
-    </MouseAction>
-    <MouseAction UIObjectName="UIMap.UIОткрытиеWindow.UIItemWindow.UIDictionariesListItem.UIИмяEdit">
-      <ParameterName />
-      <ModifierKeys>None</ModifierKeys>
-      <IsGlobalHotkey>false</IsGlobalHotkey>
-      <Location X="36" Y="14" />
-      <WheelDirection>0</WheelDirection>
-      <ActionType>DoubleClick</ActionType>
-      <MouseButton>Left</MouseButton>
-    </MouseAction>
-    <MouseAction UIObjectName="UIMap.UIОткрытиеWindow.UIItemWindow1.UIProlingRustxtListItem.UIИмяEdit">
-      <ParameterName />
-      <ModifierKeys>None</ModifierKeys>
-      <IsGlobalHotkey>false</IsGlobalHotkey>
-      <Location X="69" Y="12" />
-      <WheelDirection>0</WheelDirection>
-      <ActionType>Click</ActionType>
-      <MouseButton>Left</MouseButton>
-    </MouseAction>
-    <MouseAction UIObjectName="UIMap.UIОткрытиеWindow.UIОткрытьWindow.UIОткрытьButton">
-      <ParameterName />
-      <ModifierKeys>None</ModifierKeys>
-      <IsGlobalHotkey>false</IsGlobalHotkey>
-      <Location X="32" Y="17" />
-      <WheelDirection>0</WheelDirection>
-      <ActionType>Click</ActionType>
-      <MouseButton>Left</MouseButton>
-    </MouseAction>
-    <TestStepMarkerAction Comment="Файл словаря должен выбираться через пункт меню Файл-&gt;Выбрать словарь, после чего он становится активным. " MarkerInformation="FileSelectRecordedMethod">
-      <ParameterName />
-      <StepId>-1</StepId>
-      <Direction>Start</Direction>
-      <Outcome />
-      <Disabled>false</Disabled>
-      <WorkItemId>0</WorkItemId>
-      <MarkerRegionType>Action</MarkerRegionType>
-    </TestStepMarkerAction>
     <AssertAction UIObjectName="UIMap.UIЛабораторная1Window.UIОтсутствуетWindow.UITxtBxActiveDictionarEdit">
       <ParameterName />
       <PropertyName>Text</PropertyName>
-      <ExpectedValue>pro-lingRus.txt</ExpectedValue>
+      <ExpectedValue>UK.txt</ExpectedValue>
       <MessageOnValidationFailure />
       <Type>String</Type>
       <PropertyCondition>AreEqual</PropertyCondition>
     </AssertAction>
-    <TestStepMarkerAction Comment="В специальном txtBox должно отображаться имя текущего активного словаря." MarkerInformation="FileSelectAssert">
+    <TestStepMarkerAction Comment="В специальном txtBox должно отображаться имя нового активного словаря." MarkerInformation="FileReselectAssert">
       <ParameterName />
       <StepId>-1</StepId>
       <Direction>Start</Direction>
@@ -205,12 +160,89 @@
     <AssertAction UIObjectName="UIMap.UIЛабораторная1Window.UIОтсутствуетWindow.UITxtBxActiveDictionarEdit">
       <ParameterName />
       <PropertyName>Text</PropertyName>
-      <ExpectedValue>UK.txt</ExpectedValue>
+      <ExpectedValue>pro-lingRus.txt</ExpectedValue>
       <MessageOnValidationFailure />
       <Type>String</Type>
       <PropertyCondition>AreEqual</PropertyCondition>
     </AssertAction>
-    <TestStepMarkerAction Comment="В специальном txtBox должно отображаться имя нового активного словаря." MarkerInformation="FileReselectAssert">
+    <TestStepMarkerAction Comment="В специальном txtBox должно отображаться имя текущего активного словаря." MarkerInformation="FileSelectAssert">
+      <ParameterName />
+      <StepId>-1</StepId>
+      <Direction>Start</Direction>
+      <Outcome />
+      <Disabled>false</Disabled>
+      <WorkItemId>0</WorkItemId>
+      <MarkerRegionType>Assertion</MarkerRegionType>
+    </TestStepMarkerAction>
+    <MouseAction UIObjectName="UIMap.UIЛабораторная1Window.UIMenuStripMenuBar.UIФайлMenuItem.UIВыбратьсловарьMenuItem">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="49" Y="7" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>Click</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <MouseAction UIObjectName="UIMap.UIОткрытиеWindow.UIItemWindow.UIDictionariesListItem.UIИмяEdit">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="36" Y="14" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>DoubleClick</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <MouseAction UIObjectName="UIMap.UIОткрытиеWindow.UIItemWindow1.UIProlingRustxtListItem.UIИмяEdit">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="69" Y="12" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>Click</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <MouseAction UIObjectName="UIMap.UIОткрытиеWindow.UIОткрытьWindow.UIОткрытьButton">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="32" Y="17" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>Click</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <TestStepMarkerAction Comment="Файл словаря должен выбираться через пункт меню Файл-&gt;Выбрать словарь, после чего он становится активным. " MarkerInformation="FileSelectRecordedMethod">
+      <ParameterName />
+      <StepId>-1</StepId>
+      <Direction>Start</Direction>
+      <Outcome />
+      <Disabled>false</Disabled>
+      <WorkItemId>0</WorkItemId>
+      <MarkerRegionType>Action</MarkerRegionType>
+    </TestStepMarkerAction>
+    <AssertAction UIObjectName="UIMap.UIЛабораторная1Window.UILbClosestWordsWindow.UILbClosestWordsList">
+      <ParameterName />
+      <PropertyName>ControlName</PropertyName>
+      <MessageOnValidationFailure />
+      <PropertyCondition>IsNotNull</PropertyCondition>
+    </AssertAction>
+    <TestStepMarkerAction Comment="Method for creation Listbox code-behind." MarkerInformation="ListBoxAssert">
+      <ParameterName />
+      <StepId>-1</StepId>
+      <Direction>Start</Direction>
+      <Outcome />
+      <Disabled>false</Disabled>
+      <WorkItemId>0</WorkItemId>
+      <MarkerRegionType>Assertion</MarkerRegionType>
+    </TestStepMarkerAction>
+    <AssertAction UIObjectName="UIMap.UIЛабораторная1Window.UITxtBxWordsCountWindow.UITxtBxWordsCountEdit">
+      <ParameterName />
+      <PropertyName>Text</PropertyName>
+      <ExpectedValue>8</ExpectedValue>
+      <MessageOnValidationFailure />
+      <Type>String</Type>
+      <PropertyCondition>AreEqual</PropertyCondition>
+    </AssertAction>
+    <TestStepMarkerAction Comment="Проверяет верность выведенного значения количества найденных слов." MarkerInformation="ResultViewManyCountAssert">
       <ParameterName />
       <StepId>-1</StepId>
       <Direction>Start</Direction>
@@ -281,12 +313,12 @@
     <AssertAction UIObjectName="UIMap.UIЛабораторная1Window.UITxtBxWordsCountWindow.UITxtBxWordsCountEdit">
       <ParameterName />
       <PropertyName>Text</PropertyName>
-      <ExpectedValue>8</ExpectedValue>
+      <ExpectedValue>1</ExpectedValue>
       <MessageOnValidationFailure />
       <Type>String</Type>
       <PropertyCondition>AreEqual</PropertyCondition>
     </AssertAction>
-    <TestStepMarkerAction Comment="Проверяет верность выведенного значения количества найденных слов." MarkerInformation="ResultViewManyAssert">
+    <TestStepMarkerAction Comment="Проверяет верность выведенного значения количества найденных слов." MarkerInformation="ResultViewSingleCountAssert">
       <ParameterName />
       <StepId>-1</StepId>
       <Direction>Start</Direction>
@@ -294,6 +326,65 @@
       <Disabled>false</Disabled>
       <WorkItemId>0</WorkItemId>
       <MarkerRegionType>Assertion</MarkerRegionType>
+    </TestStepMarkerAction>
+    <MouseAction UIObjectName="UIMap.UIЛабораторная1Window.UIMenuStripMenuBar.UIФайлMenuItem.UIВыбратьсловарьMenuItem">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="34" Y="2" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>Click</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <MouseAction UIObjectName="UIMap.UIОткрытиеWindow.UIItemWindow.UIDictionariesListItem.UIИмяEdit">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="36" Y="10" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>DoubleClick</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <MouseAction UIObjectName="UIMap.UIОткрытиеWindow.UIItemWindow1.UIUKtxtListItem.UIИмяEdit">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="29" Y="11" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>Click</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <MouseAction UIObjectName="UIMap.UIОткрытиеWindow.UIОткрытьWindow.UIОткрытьButton">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="57" Y="13" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>Click</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <SetValueAction UIObjectName="UIMap.UIЛабораторная1Window.UITxtInputWordWindow.UITxtInputWordEdit">
+      <ParameterName />
+      <Value Encoded="false">testing</Value>
+      <Type>String</Type>
+    </SetValueAction>
+    <MouseAction UIObjectName="UIMap.UIЛабораторная1Window.UIПоискWindow.UIПоискButton">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="63" Y="7" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>Click</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <TestStepMarkerAction Comment="Найденное слово должно выводиться в специальный ListBox. Количество найденных слов должно отображаться в специальном TextBox." MarkerInformation="ResultViewSingleRecordedMethod">
+      <ParameterName />
+      <StepId>-1</StepId>
+      <Direction>Start</Direction>
+      <Outcome />
+      <Disabled>false</Disabled>
+      <WorkItemId>0</WorkItemId>
+      <MarkerRegionType>Action</MarkerRegionType>
     </TestStepMarkerAction>
   </ExecuteActions>
   <CleanupActions />
@@ -509,6 +600,37 @@
                   </SearchConfigurations>
                   <AndCondition Id="SearchCondition">
                     <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                  </AndCondition>
+                  <SupportLevel>100</SupportLevel>
+                  <Descendants />
+                </UIObject>
+              </Descendants>
+            </UIObject>
+            <UIObject ControlType="Window" Id="UILbClosestWordsWindow" FriendlyName="lbClosestWords" SpecialControlType="None">
+              <TechnologyName>MSAA</TechnologyName>
+              <WindowTitles>
+                <WindowTitle>Лабораторная 1</WindowTitle>
+              </WindowTitles>
+              <SearchConfigurations>
+                <SearchConfiguration>VisibleOnly</SearchConfiguration>
+              </SearchConfigurations>
+              <AndCondition Id="SearchCondition">
+                <PropertyCondition Name="ControlName">lbClosestWords</PropertyCondition>
+                <PropertyCondition Name="ControlType">Window</PropertyCondition>
+              </AndCondition>
+              <SupportLevel>100</SupportLevel>
+              <Descendants>
+                <UIObject ControlType="List" Id="UILbClosestWordsList" FriendlyName="lbClosestWords" SpecialControlType="None">
+                  <TechnologyName>MSAA</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>Лабораторная 1</WindowTitle>
+                  </WindowTitles>
+                  <SearchConfigurations>
+                    <SearchConfiguration>VisibleOnly</SearchConfiguration>
+                  </SearchConfigurations>
+                  <AndCondition Id="SearchCondition">
+                    <PropertyCondition Name="Name">Слово для поиска:</PropertyCondition>
+                    <PropertyCondition Name="ControlType">List</PropertyCondition>
                   </AndCondition>
                   <SupportLevel>100</SupportLevel>
                   <Descendants />

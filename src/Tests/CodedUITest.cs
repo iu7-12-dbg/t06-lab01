@@ -53,7 +53,7 @@ namespace Tests
         }
 
         /// <summary>
-        /// 3.SelectDictionary.3.Reselect.
+        /// Тестирует пункт 3.SelectDictionary.3.Reselect функциональных требований.
         /// В случае, если до этого уже был выбран какой-либо словарь, то он перестаёт быть активным и 
         /// выгружается из памяти программы, а вместо него загружается новый.  
         /// </summary>
@@ -64,13 +64,30 @@ namespace Tests
             this.UIMap.FileReselectAssert();
         }
 
+        /// <summary>
+        /// Тестирует пункт 3.FindClosestWords.3.ResultView функциональных требований.
+        /// Найденные слова должны выводиться в специальный ListBox.
+        /// </summary>
         [TestMethod]
-        public void ResultViewCodedUITest()
+        public void ResultViewManyCodedUITest()
         {
             this.UIMap.ResultViewManyRecordedMethod();
             Thread.Sleep(3500);  // Даём время вычислительному потоку отработать доконца.
-            this.UIMap.ResultViewManyAssert();
+            this.UIMap.ResultViewManyCountAssert();
+            this.UIMap.ResultViewManyItemsAssert();
+        }
 
+        /// <summary>
+        /// Тестирует пункт 3.FindClosestWords.3.ResultView функциональных требований.
+        /// Одно найденное слово должно вывестись в специальный ListBox.
+        /// </summary>
+        [TestMethod]
+        public void ResultViewSingleCodedUITest()
+        {
+            this.UIMap.ResultViewSingleRecordedMethod();
+            Thread.Sleep(3500);  // Даём время вычислительному потоку отработать доконца.
+            this.UIMap.ResultViewSingleCountAssert();
+            this.UIMap.ResultViewSingleItemsAssert();
         }
 
         #region Additional test attributes
