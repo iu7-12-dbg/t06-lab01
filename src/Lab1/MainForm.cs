@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Configuration;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -82,7 +83,7 @@ namespace Lab1
         {
             Invoke(new Action<List<string>>(AddClosestWordsToList), task.Result);
             toolStripStatusLabel.Text = "Готово";
-            Invoke(new Action(() => lblWordsCount.Text = "Найдено слов: " + task.Result.Count.ToString()));
+            Invoke(new Action(() => txtBxWordsCount.Text = task.Result.Count.ToString()));
         }
 
         /// <summary>
@@ -94,9 +95,7 @@ namespace Lab1
         private void MainForm_Load(object sender, EventArgs e)
         {
             toolStripStatusLabel.Text = "";
-            lblActiveDictionary.Text = "Активный словарь отсутствует";
             btnFindClosestWords.Enabled = false;
-            lblWordsCount.Text = "";
         }
 
         /// <summary>
@@ -108,10 +107,11 @@ namespace Lab1
         private void SelectDictionaryToolStripMenuItem_Click(object sender, EventArgs e)
         {
             openFileDialog.Filter = "TXT files (*.txt)|*.txt|All files (*.*)|*.*";
+            openFileDialog.InitialDirectory = Environment.CurrentDirectory;
             if (openFileDialog.ShowDialog(this) == DialogResult.OK)
             {
                 CustomWordsDictionary.Words = DictionaryProvider.ReadStringsFromFile(openFileDialog.FileName);
-                lblActiveDictionary.Text = "Активный словарь: " + openFileDialog.FileName;
+                txtBxActiveDictionary.Text = Path.GetFileName(openFileDialog.FileName);
                 btnFindClosestWords.Enabled = true;
             }
         }
