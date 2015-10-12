@@ -108,6 +108,7 @@ namespace Lab1
         private void SelectDictionaryToolStripMenuItem_Click(object sender, EventArgs e)
         {
             openFileDialog.Filter = "TXT files (*.txt)|*.txt|All files (*.*)|*.*";
+            openFileDialog.InitialDirectory = Environment.CurrentDirectory;
             if (openFileDialog.ShowDialog(this) == DialogResult.OK)
             {
                 CustomWordsDictionary.Words = DictionaryProvider.ReadStringsFromFile(openFileDialog.FileName);
