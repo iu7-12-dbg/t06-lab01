@@ -59,6 +59,7 @@ namespace Lab1
         /// <param name="e">Аргументы</param>
         private void btnFindClosestWords_Click(object sender, EventArgs e)
         {
+            SelectDictionaryToolStripMenuItem.Enabled = false;
             try
             {
                 string word = txtInputWord.Text;
@@ -70,6 +71,7 @@ namespace Lab1
             catch (Exception exception)
             {
                 MessageBox.Show(exception.Message);
+                SelectDictionaryToolStripMenuItem.Enabled = true;
             }
         }
 
@@ -84,6 +86,7 @@ namespace Lab1
             Invoke(new Action<List<string>>(AddClosestWordsToList), task.Result);
             toolStripStatusLabel.Text = "Готово";
             Invoke(new Action(() => txtBxWordsCount.Text = task.Result.Count.ToString()));
+            Invoke(new Action(() => SelectDictionaryToolStripMenuItem.Enabled = true));
         }
 
         /// <summary>
