@@ -56,42 +56,28 @@ namespace Tests
         }
         
         /// <summary>
-        /// В случае, если до этого уже был выбран какой-либо словарь, то он перестаёт быть активным и 
-        ///выгружается из памяти программы, а вместо него загружается новый.
+        /// FileReselectRecordedMethod
         /// </summary>
         public void FileReselectRecordedMethod()
         {
             #region Variable Declarations
             WinMenuItem uIВыбратьсловарьMenuItem = this.UIЛабораторная1Window.UIMenuStripMenuBar.UIФайлMenuItem.UIВыбратьсловарьMenuItem;
             WinEdit uIИмяEdit = this.UIОткрытиеWindow.UIItemWindow.UIDictionariesListItem.UIИмяEdit;
-            WinEdit uIИмяEdit1 = this.UIОткрытиеWindow.UIItemWindow1.UIProlingRustxtListItem.UIИмяEdit;
-            WinButton uIОткрытьButton = this.UIОткрытиеWindow.UIОткрытьWindow.UIОткрытьButton;
-            WinEdit uIИмяEdit2 = this.UIОткрытиеWindow.UIItemWindow1.UIUKtxtListItem.UIИмяEdit;
+            WinEdit uIИмяEdit1 = this.UIОткрытиеWindow.UIItemWindow1.UIUKtxtListItem.UIИмяEdit;
+            WinSplitButton uIОткрытьSplitButton = this.UIОткрытиеWindow.UIОткрытьWindow.UIОткрытьSplitButton;
             #endregion
 
             // Click 'Файл' -> 'Выбрать словарь' menu item
-            Mouse.Click(uIВыбратьсловарьMenuItem, new Point(65, 4));
+            Mouse.Click(uIВыбратьсловарьMenuItem, new Point(38, 7));
 
             // Double-Click 'Имя' text box
-            Mouse.DoubleClick(uIИмяEdit, new Point(63, 13));
+            Mouse.DoubleClick(uIИмяEdit, new Point(45, 7));
 
             // Click 'Имя' text box
-            Mouse.Click(uIИмяEdit1, new Point(100, 13));
+            Mouse.Click(uIИмяEdit1, new Point(47, 6));
 
-            // Click '&Открыть' button
-            Mouse.Click(uIОткрытьButton, new Point(40, 11));
-
-            // Click 'Файл' -> 'Выбрать словарь' menu item
-            Mouse.Click(uIВыбратьсловарьMenuItem, new Point(30, 13));
-
-            // Double-Click 'Имя' text box
-            Mouse.DoubleClick(uIИмяEdit, new Point(59, 7));
-
-            // Click 'Имя' text box
-            Mouse.Click(uIИмяEdit2, new Point(56, 9));
-
-            // Click '&Открыть' button
-            Mouse.Click(uIОткрытьButton, new Point(35, 9));
+            // Click '&Открыть' split button
+            Mouse.Click(uIОткрытьSplitButton, new Point(10, 15));
         }
         
         /// <summary>
@@ -108,7 +94,7 @@ namespace Tests
         }
         
         /// <summary>
-        /// Файл словаря должен выбираться через пункт меню Файл->Выбрать словарь, после чего он становится активным.
+        /// FileSelectRecordedMethod
         /// </summary>
         public void FileSelectRecordedMethod()
         {
@@ -116,20 +102,20 @@ namespace Tests
             WinMenuItem uIВыбратьсловарьMenuItem = this.UIЛабораторная1Window.UIMenuStripMenuBar.UIФайлMenuItem.UIВыбратьсловарьMenuItem;
             WinEdit uIИмяEdit = this.UIОткрытиеWindow.UIItemWindow.UIDictionariesListItem.UIИмяEdit;
             WinEdit uIИмяEdit1 = this.UIОткрытиеWindow.UIItemWindow1.UIProlingRustxtListItem.UIИмяEdit;
-            WinButton uIОткрытьButton = this.UIОткрытиеWindow.UIОткрытьWindow.UIОткрытьButton;
+            WinSplitButton uIОткрытьSplitButton = this.UIОткрытиеWindow.UIОткрытьWindow.UIОткрытьSplitButton;
             #endregion
 
             // Click 'Файл' -> 'Выбрать словарь' menu item
-            Mouse.Click(uIВыбратьсловарьMenuItem, new Point(49, 7));
+            Mouse.Click(uIВыбратьсловарьMenuItem, new Point(47, 5));
 
             // Double-Click 'Имя' text box
-            Mouse.DoubleClick(uIИмяEdit, new Point(36, 14));
+            Mouse.DoubleClick(uIИмяEdit, new Point(26, 16));
 
             // Click 'Имя' text box
-            Mouse.Click(uIИмяEdit1, new Point(69, 12));
+            Mouse.Click(uIИмяEdit1, new Point(36, 13));
 
-            // Click '&Открыть' button
-            Mouse.Click(uIОткрытьButton, new Point(32, 17));
+            // Click '&Открыть' split button
+            Mouse.Click(uIОткрытьSplitButton, new Point(34, 12));
         }
         
         /// <summary>
@@ -159,36 +145,20 @@ namespace Tests
         }
         
         /// <summary>
-        /// Найденные слова должны выводиться в специальный ListBox. Количество найденных слов должно отображаться в специальном TextBox.
+        /// ResultViewManyRecordedMethod - Use 'ResultViewManyRecordedMethodParams' to pass parameters into this method.
         /// </summary>
         public void ResultViewManyRecordedMethod()
         {
             #region Variable Declarations
-            WinMenuItem uIВыбратьсловарьMenuItem = this.UIЛабораторная1Window.UIMenuStripMenuBar.UIФайлMenuItem.UIВыбратьсловарьMenuItem;
-            WinEdit uIИмяEdit = this.UIОткрытиеWindow.UIItemWindow.UIDictionariesListItem.UIИмяEdit;
-            WinEdit uIИмяEdit1 = this.UIОткрытиеWindow.UIItemWindow1.UIProlingRustxtListItem.UIИмяEdit;
-            WinButton uIОткрытьButton = this.UIОткрытиеWindow.UIОткрытьWindow.UIОткрытьButton;
             WinEdit uITxtInputWordEdit = this.UIЛабораторная1Window.UITxtInputWordWindow.UITxtInputWordEdit;
             WinButton uIПоискButton = this.UIЛабораторная1Window.UIПоискWindow.UIПоискButton;
             #endregion
-
-            // Click 'Файл' -> 'Выбрать словарь' menu item
-            Mouse.Click(uIВыбратьсловарьMenuItem, new Point(45, 8));
-
-            // Double-Click 'Имя' text box
-            Mouse.DoubleClick(uIИмяEdit, new Point(32, 12));
-
-            // Click 'Имя' text box
-            Mouse.Click(uIИмяEdit1, new Point(49, 11));
-
-            // Click '&Открыть' button
-            Mouse.Click(uIОткрытьButton, new Point(48, 12));
 
             // Type 'малако' in 'txtInputWord' text box
             uITxtInputWordEdit.Text = this.ResultViewManyRecordedMethodParams.UITxtInputWordEditText;
 
             // Click 'Поиск' button
-            Mouse.Click(uIПоискButton, new Point(112, 15));
+            Mouse.Click(uIПоискButton, new Point(88, 11));
         }
         
         /// <summary>
@@ -205,36 +175,20 @@ namespace Tests
         }
         
         /// <summary>
-        /// Найденное слово должно выводиться в специальный ListBox. Количество найденных слов должно отображаться в специальном TextBox.
+        /// ResultViewSIngleRecordedMethod - Use 'ResultViewSIngleRecordedMethodParams' to pass parameters into this method.
         /// </summary>
-        public void ResultViewSingleRecordedMethod()
+        public void ResultViewSIngleRecordedMethod()
         {
             #region Variable Declarations
-            WinMenuItem uIВыбратьсловарьMenuItem = this.UIЛабораторная1Window.UIMenuStripMenuBar.UIФайлMenuItem.UIВыбратьсловарьMenuItem;
-            WinEdit uIИмяEdit = this.UIОткрытиеWindow.UIItemWindow.UIDictionariesListItem.UIИмяEdit;
-            WinEdit uIИмяEdit1 = this.UIОткрытиеWindow.UIItemWindow1.UIUKtxtListItem.UIИмяEdit;
-            WinButton uIОткрытьButton = this.UIОткрытиеWindow.UIОткрытьWindow.UIОткрытьButton;
             WinEdit uITxtInputWordEdit = this.UIЛабораторная1Window.UITxtInputWordWindow.UITxtInputWordEdit;
             WinButton uIПоискButton = this.UIЛабораторная1Window.UIПоискWindow.UIПоискButton;
             #endregion
 
-            // Click 'Файл' -> 'Выбрать словарь' menu item
-            Mouse.Click(uIВыбратьсловарьMenuItem, new Point(34, 2));
-
-            // Double-Click 'Имя' text box
-            Mouse.DoubleClick(uIИмяEdit, new Point(36, 10));
-
-            // Click 'Имя' text box
-            Mouse.Click(uIИмяEdit1, new Point(29, 11));
-
-            // Click '&Открыть' button
-            Mouse.Click(uIОткрытьButton, new Point(57, 13));
-
             // Type 'testing' in 'txtInputWord' text box
-            uITxtInputWordEdit.Text = this.ResultViewSingleRecordedMethodParams.UITxtInputWordEditText;
+            uITxtInputWordEdit.Text = this.ResultViewSIngleRecordedMethodParams.UITxtInputWordEditText;
 
             // Click 'Поиск' button
-            Mouse.Click(uIПоискButton, new Point(63, 7));
+            Mouse.Click(uIПоискButton, new Point(105, 12));
         }
         
         #region Properties
@@ -298,15 +252,15 @@ namespace Tests
             }
         }
         
-        public virtual ResultViewSingleRecordedMethodParams ResultViewSingleRecordedMethodParams
+        public virtual ResultViewSIngleRecordedMethodParams ResultViewSIngleRecordedMethodParams
         {
             get
             {
-                if ((this.mResultViewSingleRecordedMethodParams == null))
+                if ((this.mResultViewSIngleRecordedMethodParams == null))
                 {
-                    this.mResultViewSingleRecordedMethodParams = new ResultViewSingleRecordedMethodParams();
+                    this.mResultViewSIngleRecordedMethodParams = new ResultViewSIngleRecordedMethodParams();
                 }
-                return this.mResultViewSingleRecordedMethodParams;
+                return this.mResultViewSIngleRecordedMethodParams;
             }
         }
         
@@ -346,7 +300,7 @@ namespace Tests
         
         private ResultViewSingleCountAssertExpectedValues mResultViewSingleCountAssertExpectedValues;
         
-        private ResultViewSingleRecordedMethodParams mResultViewSingleRecordedMethodParams;
+        private ResultViewSIngleRecordedMethodParams mResultViewSIngleRecordedMethodParams;
         
         private UIЛабораторная1Window mUIЛабораторная1Window;
         
@@ -430,10 +384,10 @@ namespace Tests
     }
     
     /// <summary>
-    /// Parameters to be passed into 'ResultViewSingleRecordedMethod'
+    /// Parameters to be passed into 'ResultViewSIngleRecordedMethod'
     /// </summary>
     [GeneratedCode("Coded UITest Builder", "12.0.21005.1")]
-    public class ResultViewSingleRecordedMethodParams
+    public class ResultViewSIngleRecordedMethodParams
     {
         
         #region Fields
@@ -1119,10 +1073,28 @@ namespace Tests
                 return this.mUIОткрытьButton;
             }
         }
+        
+        public WinSplitButton UIОткрытьSplitButton
+        {
+            get
+            {
+                if ((this.mUIОткрытьSplitButton == null))
+                {
+                    this.mUIОткрытьSplitButton = new WinSplitButton(this);
+                    #region Search Criteria
+                    this.mUIОткрытьSplitButton.SearchProperties[WinButton.PropertyNames.Name] = "Открыть";
+                    this.mUIОткрытьSplitButton.WindowTitles.Add("Открытие");
+                    #endregion
+                }
+                return this.mUIОткрытьSplitButton;
+            }
+        }
         #endregion
         
         #region Fields
         private WinButton mUIОткрытьButton;
+        
+        private WinSplitButton mUIОткрытьSplitButton;
         #endregion
     }
 }
