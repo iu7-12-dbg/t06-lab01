@@ -60,6 +60,7 @@ namespace Tests
         [TestMethod]
         public void FileReselectCodedUITest()
         {
+            this.UIMap.FileSelectRecordedMethod();
             this.UIMap.FileReselectRecordedMethod();
             this.UIMap.FileReselectAssert();
         }
@@ -71,6 +72,7 @@ namespace Tests
         [TestMethod]
         public void ResultViewManyCodedUITest()
         {
+            this.UIMap.FileSelectRecordedMethod();
             this.UIMap.ResultViewManyRecordedMethod();
             Thread.Sleep(3500);  // Даём время вычислительному потоку отработать доконца.
             this.UIMap.ResultViewManyCountAssert();
@@ -84,7 +86,8 @@ namespace Tests
         [TestMethod]
         public void ResultViewSingleCodedUITest()
         {
-            this.UIMap.ResultViewSingleRecordedMethod();
+            this.UIMap.FileReselectRecordedMethod();
+            this.UIMap.ResultViewSIngleRecordedMethod();
             Thread.Sleep(3500);  // Даём время вычислительному потоку отработать доконца.
             this.UIMap.ResultViewSingleCountAssert();
             this.UIMap.ResultViewSingleItemsAssert();
