@@ -4,6 +4,10 @@
     padding: 0;
 }
 
+textarea {
+    resize: none;
+}
+
 body {
     background-color: #fff;
     border-top: solid 10px #000;

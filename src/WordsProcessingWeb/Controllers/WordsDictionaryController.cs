@@ -15,17 +15,25 @@ namespace WordsProcessingWeb.Controllers
 
         public ActionResult Index()
         {
-            Dictionary d1 = new Dictionary { Name = "Rus" };
+          
+           /* Dictionary d1 = new Dictionary { Name = "Rus" };
             Dictionary d2 = new Dictionary { Name = "UK" };
 
             db.Dictionaries.Add(d1);
-           /* db.Dictionaries.Add(d2);
-            db.SaveChanges();
-
-            Word w1 = new Word { Text = "Игорь", Dictionary = d1 };
+            db.Dictionaries.Add(d2);
             db.SaveChanges();*/
 
-            return View();
+           /* Word w1 = new Word { Text = "Игорь", Dictionary = d1 };
+            db.SaveChanges();*/
+
+            return View(db.Dictionaries.ToList());
+        }
+
+        [HttpPost]
+        public void CheckText(string inputedText)
+        {
+            
+
         }
 
     }
