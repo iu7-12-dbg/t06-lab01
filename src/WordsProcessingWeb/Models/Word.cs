@@ -10,6 +10,6 @@ namespace WordsProcessingWeb.Models
         public int Id { get; set; }
         public string Text { get; set; }
         public int? DictionaryId { get; set; }
-        public Dictionary Dictionary { get; set; }
+        public virtual Dictionary Dictionary { get; set; }
     }
 }
