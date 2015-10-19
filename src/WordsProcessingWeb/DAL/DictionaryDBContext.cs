@@ -10,5 +10,6 @@ namespace WordsProcessingWeb.DAL
     public class DictionaryDBContext : DbContext
     {
         public DbSet<Dictionary> Dictionaries { get; set; }
+        public DbSet<Word> Words { get; set; }
     }
 }
