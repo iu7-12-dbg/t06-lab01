@@ -1,4 +1,4 @@
-﻿@model IEnumerable<WordsProcessingWeb.Models.Dictionary> 
+﻿@model IEnumerable<WordsProcessingWeb.Models.Word> 
 
 @{
     ViewBag.Title = "Index";
@@ -16,11 +16,3 @@
     </div>
 </form>
 
-@foreach (var item in Model)
-{
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-    </tr>
-}
