@@ -23,52 +23,30 @@
         </div>
     </header>
     <div id="body">
-        <!--  <h2>Проверка правописания</h2>
-
-          <form name="wordForm" action="/WordsDictionary/ResultWordsView" method="post">
-              <div>
-                  <h5>Выберите язык</h5>
-              </div>
-              <div>
-                  <input type="radio" name="Language" value="RUS" checked="checked" /> Русский
-                  <input type="radio" name="Language" value="ENG" />Английский
-
-
-              </div>
-              <div>
-                  <textarea name="inputedWord" class="form-control"></textarea>
-              </div>
-
-              <div>
-                  <button type="submit" name="submit" class="btn btn-default">Поверить</button>
-              </div>
-          </form>
-          <div>
-
-
-          </div> -->
+    
         <div class="container">
-            <h2>Проверка правописания</h2>
+            <h1>Проверка правописания</h1>
             <div class="row">
                 <div class="col-md-8">
                     <form name="wordForm" action="/WordsDictionary/ResultWords" method="post">
                         <div class="row">
                             <div class="col-md-12">
-                                <h4>Выберите язык</h4>
+                                <h2>Выберите язык</h2>
                             </div>
                         </div>
-                        <div class="col-md-12">
-                            <input type="radio" name="Language" value="RUS" checked="checked" /> Русский
-                        </div>
-                        <div class="col-md-12">
-                            <input type="radio" name="Language" value="ENG" />Английский
-                        </div>
+                        <h2>
+                        <select name="Language">
+                            <option value="RUS" selected="selected">Русский</option>
+                            <option value="ENG">Английский</option>
+                        </select>
+                        </h2>
+                    
                         <div>
                             <textarea name="inputedWord" class="form-control"></textarea>
                         </div>
 
                         <div>
-                            <button type="submit" name="submit" class="btn btn-default">Поверить</button>
+                            <button type="submit" name="submit" class="btn btn-default">Проверить</button>
                         </div>
                     </form>
                 </div>
