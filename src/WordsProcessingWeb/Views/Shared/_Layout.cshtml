@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+    <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta charset="utf-8" />
+        <title>@ViewBag.Title — приложение ASP.NET MVC</title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="stylesheet" href="~/Content/bootstrap.min.css" type="text/css" />
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+    </head>
+<body>
+    <header>
+        <div class="content-wrapper">
+
+            <div class="float-right">
+                <section id="login">
+                    @Html.Partial("_LoginPartial")
+                </section>
+
+            </div>
+        </div>
+    </header>
+    <div id="body">
+    
+        <div class="container">
+            <h1>Проверка правописания</h1>
+            <div class="row">
+                <div class="col-md-8">
+                    <form name="wordForm" action="/WordsDictionary/ResultWords" method="post">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h2>Выберите язык</h2>
+                            </div>
+                        </div>
+                        <h2>
+                        <select name="Language">
+                            <option value="RUS" selected="selected">Русский</option>
+                            <option value="ENG">Английский</option>
+                        </select>
+                        </h2>
+                    
+                        <div>
+                            <textarea name="inputedWord" class="form-control"></textarea>
+                        </div>
+
+                        <div>
+                            <button type="submit" name="submit" class="btn btn-default">Проверить</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="col-md-4">
+                    @Html.Partial("../WordsDictionary/ResultWords")
+                </div>
+            </div>
+        </div>
+        @RenderSection("featured", required: false)
+        <!--    <section class="content-wrapper main-content clear-fix">
+                @RenderBody()
+            </section> -->
+        <!--     <asp:UpdateProgress id="updateProgress" runat="server">
+                 <Progresstemplate>
+                     <div style="position: fixed; text-align: center; height: 100%; width: 100%; top: 0; right: 0; left: 0; z-index: 9999999; background-color: #000000; opacity: 0.7;">
+                         <span style="border-width: 0px; position: fixed; padding: 50px; background-color: #FFFFFF; font-size: 36px; left: 40%; top: 40%;">Loading ...</span>
+                     </div>
+                 </Progresstemplate>
+             </asp:UpdateProgress> -->
+
+
+    </div>
+    <footer>
+        <div class="content-wrapper">
+            <div class="float-left">
+                <p><h2>&copy; @DateTime.Now.Year — приложение ASP.NET MVC</h2></p>
+            </div>
+        </div>
+    </footer>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+    </body>
+</html>

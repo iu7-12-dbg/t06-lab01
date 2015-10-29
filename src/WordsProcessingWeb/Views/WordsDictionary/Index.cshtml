@@ -1,0 +1,18 @@
+﻿@model IEnumerable<WordsProcessingWeb.Models.Word> 
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Текстовый редактор</h2>
+
+<form action="/WordsDictionary/CheckText/inputedText" method="post">
+    <div>
+        <textarea name="inputedText"></textarea>
+    </div>
+
+    <div>
+        <input type="submit" name="submit" value="Submit" />
+    </div>
+</form>
+

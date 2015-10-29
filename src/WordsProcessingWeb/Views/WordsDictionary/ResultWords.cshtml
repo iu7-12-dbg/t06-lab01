@@ -1,0 +1,16 @@
+﻿@model IEnumerable<WordsProcessingWeb.Models.Word> 
+
+@{
+    ViewBag.Title = "ResultWords";
+}
+
+
+@foreach (var item in Model)
+{
+    <ul>
+        <li>
+           <h2> @Html.DisplayFor(modelItem => item.Text) </h2>
+        </li>
+    </ul>
+}
+
