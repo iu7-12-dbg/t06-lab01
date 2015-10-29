@@ -18,7 +18,6 @@ namespace Tests
         {
             // arrange
             MockLevenshteinDictionary levDist = new MockLevenshteinDictionary();
-            WordsDictionary dic = new WordsDictionary(levDist);
             List<string> origWords = new List<string>()
             {
                 "First", 
@@ -28,7 +27,8 @@ namespace Tests
                 "Fifth",
                 "Sixth"
             };
-            dic.Words = origWords;
+            MockDictionaryFileFiller filler = new MockDictionaryFileFiller(origWords);
+            WordsDictionary dic = new WordsDictionary(levDist, filler);
              
             // act
             List<string> res = dic.GetClosestWords("Seventh");
@@ -45,7 +45,6 @@ namespace Tests
         {
             // arrange
             ILevenshteinDistance levDist = new WagnerFischer();
-            WordsDictionary dic = new WordsDictionary(levDist);
             List<string> origWords = new List<string>()
             {
                 "First", 
@@ -55,7 +54,8 @@ namespace Tests
                 "Fifth",
                 "Sixth"
             };
-            dic.Words = origWords;
+            MockDictionaryFileFiller filler = new MockDictionaryFileFiller(origWords);
+            WordsDictionary dic = new WordsDictionary(levDist, filler);
             List<string> resWords = new List<string>()
             {
                 "First",
