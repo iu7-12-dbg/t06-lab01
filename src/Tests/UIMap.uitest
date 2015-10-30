@@ -80,7 +80,7 @@
       <ParameterName />
       <ModifierKeys>None</ModifierKeys>
       <IsGlobalHotkey>false</IsGlobalHotkey>
-      <Location X="65" Y="4" />
+      <Location X="38" Y="7" />
       <WheelDirection>0</WheelDirection>
       <ActionType>Click</ActionType>
       <MouseButton>Left</MouseButton>
@@ -89,43 +89,7 @@
       <ParameterName />
       <ModifierKeys>None</ModifierKeys>
       <IsGlobalHotkey>false</IsGlobalHotkey>
-      <Location X="63" Y="13" />
-      <WheelDirection>0</WheelDirection>
-      <ActionType>DoubleClick</ActionType>
-      <MouseButton>Left</MouseButton>
-    </MouseAction>
-    <MouseAction UIObjectName="UIMap.UIОткрытиеWindow.UIItemWindow1.UIProlingRustxtListItem.UIИмяEdit">
-      <ParameterName />
-      <ModifierKeys>None</ModifierKeys>
-      <IsGlobalHotkey>false</IsGlobalHotkey>
-      <Location X="100" Y="13" />
-      <WheelDirection>0</WheelDirection>
-      <ActionType>Click</ActionType>
-      <MouseButton>Left</MouseButton>
-    </MouseAction>
-    <MouseAction UIObjectName="UIMap.UIОткрытиеWindow.UIОткрытьWindow.UIОткрытьButton">
-      <ParameterName />
-      <ModifierKeys>None</ModifierKeys>
-      <IsGlobalHotkey>false</IsGlobalHotkey>
-      <Location X="40" Y="11" />
-      <WheelDirection>0</WheelDirection>
-      <ActionType>Click</ActionType>
-      <MouseButton>Left</MouseButton>
-    </MouseAction>
-    <MouseAction UIObjectName="UIMap.UIЛабораторная1Window.UIMenuStripMenuBar.UIФайлMenuItem.UIВыбратьсловарьMenuItem">
-      <ParameterName />
-      <ModifierKeys>None</ModifierKeys>
-      <IsGlobalHotkey>false</IsGlobalHotkey>
-      <Location X="30" Y="13" />
-      <WheelDirection>0</WheelDirection>
-      <ActionType>Click</ActionType>
-      <MouseButton>Left</MouseButton>
-    </MouseAction>
-    <MouseAction UIObjectName="UIMap.UIОткрытиеWindow.UIItemWindow.UIDictionariesListItem.UIИмяEdit">
-      <ParameterName />
-      <ModifierKeys>None</ModifierKeys>
-      <IsGlobalHotkey>false</IsGlobalHotkey>
-      <Location X="59" Y="7" />
+      <Location X="45" Y="7" />
       <WheelDirection>0</WheelDirection>
       <ActionType>DoubleClick</ActionType>
       <MouseButton>Left</MouseButton>
@@ -134,21 +98,21 @@
       <ParameterName />
       <ModifierKeys>None</ModifierKeys>
       <IsGlobalHotkey>false</IsGlobalHotkey>
-      <Location X="56" Y="9" />
+      <Location X="47" Y="6" />
       <WheelDirection>0</WheelDirection>
       <ActionType>Click</ActionType>
       <MouseButton>Left</MouseButton>
     </MouseAction>
-    <MouseAction UIObjectName="UIMap.UIОткрытиеWindow.UIОткрытьWindow.UIОткрытьButton">
+    <MouseAction UIObjectName="UIMap.UIОткрытиеWindow.UIОткрытьWindow.UIОткрытьSplitButton">
       <ParameterName />
       <ModifierKeys>None</ModifierKeys>
       <IsGlobalHotkey>false</IsGlobalHotkey>
-      <Location X="35" Y="9" />
+      <Location X="10" Y="15" />
       <WheelDirection>0</WheelDirection>
       <ActionType>Click</ActionType>
       <MouseButton>Left</MouseButton>
     </MouseAction>
-    <TestStepMarkerAction Comment="В случае, если до этого уже был выбран какой-либо словарь, то он перестаёт быть активным и &#xD;&#xA;выгружается из памяти программы, а вместо него загружается новый.  " MarkerInformation="FileReselectRecordedMethod">
+    <TestStepMarkerAction Comment="" MarkerInformation="FileReselectRecordedMethod">
       <ParameterName />
       <StepId>-1</StepId>
       <Direction>Start</Direction>
@@ -178,7 +142,7 @@
       <ParameterName />
       <ModifierKeys>None</ModifierKeys>
       <IsGlobalHotkey>false</IsGlobalHotkey>
-      <Location X="49" Y="7" />
+      <Location X="47" Y="5" />
       <WheelDirection>0</WheelDirection>
       <ActionType>Click</ActionType>
       <MouseButton>Left</MouseButton>
@@ -187,7 +151,7 @@
       <ParameterName />
       <ModifierKeys>None</ModifierKeys>
       <IsGlobalHotkey>false</IsGlobalHotkey>
-      <Location X="36" Y="14" />
+      <Location X="26" Y="16" />
       <WheelDirection>0</WheelDirection>
       <ActionType>DoubleClick</ActionType>
       <MouseButton>Left</MouseButton>
@@ -196,21 +160,21 @@
       <ParameterName />
       <ModifierKeys>None</ModifierKeys>
       <IsGlobalHotkey>false</IsGlobalHotkey>
-      <Location X="69" Y="12" />
+      <Location X="36" Y="13" />
       <WheelDirection>0</WheelDirection>
       <ActionType>Click</ActionType>
       <MouseButton>Left</MouseButton>
     </MouseAction>
-    <MouseAction UIObjectName="UIMap.UIОткрытиеWindow.UIОткрытьWindow.UIОткрытьButton">
+    <MouseAction UIObjectName="UIMap.UIОткрытиеWindow.UIОткрытьWindow.UIОткрытьSplitButton">
       <ParameterName />
       <ModifierKeys>None</ModifierKeys>
       <IsGlobalHotkey>false</IsGlobalHotkey>
-      <Location X="32" Y="17" />
+      <Location X="34" Y="12" />
       <WheelDirection>0</WheelDirection>
       <ActionType>Click</ActionType>
       <MouseButton>Left</MouseButton>
     </MouseAction>
-    <TestStepMarkerAction Comment="Файл словаря должен выбираться через пункт меню Файл-&gt;Выбрать словарь, после чего он становится активным. " MarkerInformation="FileSelectRecordedMethod">
+    <TestStepMarkerAction Comment="" MarkerInformation="FileSelectRecordedMethod">
       <ParameterName />
       <StepId>-1</StepId>
       <Direction>Start</Direction>
@@ -251,42 +215,6 @@
       <WorkItemId>0</WorkItemId>
       <MarkerRegionType>Assertion</MarkerRegionType>
     </TestStepMarkerAction>
-    <MouseAction UIObjectName="UIMap.UIЛабораторная1Window.UIMenuStripMenuBar.UIФайлMenuItem.UIВыбратьсловарьMenuItem">
-      <ParameterName />
-      <ModifierKeys>None</ModifierKeys>
-      <IsGlobalHotkey>false</IsGlobalHotkey>
-      <Location X="45" Y="8" />
-      <WheelDirection>0</WheelDirection>
-      <ActionType>Click</ActionType>
-      <MouseButton>Left</MouseButton>
-    </MouseAction>
-    <MouseAction UIObjectName="UIMap.UIОткрытиеWindow.UIItemWindow.UIDictionariesListItem.UIИмяEdit">
-      <ParameterName />
-      <ModifierKeys>None</ModifierKeys>
-      <IsGlobalHotkey>false</IsGlobalHotkey>
-      <Location X="32" Y="12" />
-      <WheelDirection>0</WheelDirection>
-      <ActionType>DoubleClick</ActionType>
-      <MouseButton>Left</MouseButton>
-    </MouseAction>
-    <MouseAction UIObjectName="UIMap.UIОткрытиеWindow.UIItemWindow1.UIProlingRustxtListItem.UIИмяEdit">
-      <ParameterName />
-      <ModifierKeys>None</ModifierKeys>
-      <IsGlobalHotkey>false</IsGlobalHotkey>
-      <Location X="49" Y="11" />
-      <WheelDirection>0</WheelDirection>
-      <ActionType>Click</ActionType>
-      <MouseButton>Left</MouseButton>
-    </MouseAction>
-    <MouseAction UIObjectName="UIMap.UIОткрытиеWindow.UIОткрытьWindow.UIОткрытьButton">
-      <ParameterName />
-      <ModifierKeys>None</ModifierKeys>
-      <IsGlobalHotkey>false</IsGlobalHotkey>
-      <Location X="48" Y="12" />
-      <WheelDirection>0</WheelDirection>
-      <ActionType>Click</ActionType>
-      <MouseButton>Left</MouseButton>
-    </MouseAction>
     <SetValueAction UIObjectName="UIMap.UIЛабораторная1Window.UITxtInputWordWindow.UITxtInputWordEdit">
       <ParameterName />
       <Value Encoded="false">малако</Value>
@@ -296,12 +224,12 @@
       <ParameterName />
       <ModifierKeys>None</ModifierKeys>
       <IsGlobalHotkey>false</IsGlobalHotkey>
-      <Location X="112" Y="15" />
+      <Location X="88" Y="11" />
       <WheelDirection>0</WheelDirection>
       <ActionType>Click</ActionType>
       <MouseButton>Left</MouseButton>
     </MouseAction>
-    <TestStepMarkerAction Comment="Найденные слова должны выводиться в специальный ListBox. Количество найденных слов должно отображаться в специальном TextBox." MarkerInformation="ResultViewManyRecordedMethod">
+    <TestStepMarkerAction Comment="" MarkerInformation="ResultViewManyRecordedMethod">
       <ParameterName />
       <StepId>-1</StepId>
       <Direction>Start</Direction>
@@ -327,42 +255,6 @@
       <WorkItemId>0</WorkItemId>
       <MarkerRegionType>Assertion</MarkerRegionType>
     </TestStepMarkerAction>
-    <MouseAction UIObjectName="UIMap.UIЛабораторная1Window.UIMenuStripMenuBar.UIФайлMenuItem.UIВыбратьсловарьMenuItem">
-      <ParameterName />
-      <ModifierKeys>None</ModifierKeys>
-      <IsGlobalHotkey>false</IsGlobalHotkey>
-      <Location X="34" Y="2" />
-      <WheelDirection>0</WheelDirection>
-      <ActionType>Click</ActionType>
-      <MouseButton>Left</MouseButton>
-    </MouseAction>
-    <MouseAction UIObjectName="UIMap.UIОткрытиеWindow.UIItemWindow.UIDictionariesListItem.UIИмяEdit">
-      <ParameterName />
-      <ModifierKeys>None</ModifierKeys>
-      <IsGlobalHotkey>false</IsGlobalHotkey>
-      <Location X="36" Y="10" />
-      <WheelDirection>0</WheelDirection>
-      <ActionType>DoubleClick</ActionType>
-      <MouseButton>Left</MouseButton>
-    </MouseAction>
-    <MouseAction UIObjectName="UIMap.UIОткрытиеWindow.UIItemWindow1.UIUKtxtListItem.UIИмяEdit">
-      <ParameterName />
-      <ModifierKeys>None</ModifierKeys>
-      <IsGlobalHotkey>false</IsGlobalHotkey>
-      <Location X="29" Y="11" />
-      <WheelDirection>0</WheelDirection>
-      <ActionType>Click</ActionType>
-      <MouseButton>Left</MouseButton>
-    </MouseAction>
-    <MouseAction UIObjectName="UIMap.UIОткрытиеWindow.UIОткрытьWindow.UIОткрытьButton">
-      <ParameterName />
-      <ModifierKeys>None</ModifierKeys>
-      <IsGlobalHotkey>false</IsGlobalHotkey>
-      <Location X="57" Y="13" />
-      <WheelDirection>0</WheelDirection>
-      <ActionType>Click</ActionType>
-      <MouseButton>Left</MouseButton>
-    </MouseAction>
     <SetValueAction UIObjectName="UIMap.UIЛабораторная1Window.UITxtInputWordWindow.UITxtInputWordEdit">
       <ParameterName />
       <Value Encoded="false">testing</Value>
@@ -372,12 +264,12 @@
       <ParameterName />
       <ModifierKeys>None</ModifierKeys>
       <IsGlobalHotkey>false</IsGlobalHotkey>
-      <Location X="63" Y="7" />
+      <Location X="105" Y="12" />
       <WheelDirection>0</WheelDirection>
       <ActionType>Click</ActionType>
       <MouseButton>Left</MouseButton>
     </MouseAction>
-    <TestStepMarkerAction Comment="Найденное слово должно выводиться в специальный ListBox. Количество найденных слов должно отображаться в специальном TextBox." MarkerInformation="ResultViewSingleRecordedMethod">
+    <TestStepMarkerAction Comment="" MarkerInformation="ResultViewSIngleRecordedMethod">
       <ParameterName />
       <StepId>-1</StepId>
       <Direction>Start</Direction>
@@ -797,6 +689,21 @@
                   <AndCondition Id="SearchCondition">
                     <PropertyCondition Name="Name">Открыть</PropertyCondition>
                     <PropertyCondition Name="ControlType">Button</PropertyCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="SplitButton" Id="UIОткрытьSplitButton" FriendlyName="&amp;Открыть" SpecialControlType="None">
+                  <TechnologyName>MSAA</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>Открытие</WindowTitle>
+                  </WindowTitles>
+                  <SearchConfigurations>
+                    <SearchConfiguration>VisibleOnly</SearchConfiguration>
+                  </SearchConfigurations>
+                  <AndCondition Id="SearchCondition">
+                    <PropertyCondition Name="Name">Открыть</PropertyCondition>
+                    <PropertyCondition Name="ControlType">SplitButton</PropertyCondition>
                   </AndCondition>
                   <SupportLevel>0</SupportLevel>
                   <Descendants />

@@ -55,8 +55,9 @@
   </Choose>
   <ItemGroup>
     <Compile Include="CodedUITest.cs" />
+    <Compile Include="MockDictionaryFileFiller.cs" />
     <Compile Include="MockLevenshteinDictionary.cs" />
-    <Compile Include="DictionaryProviderTest.cs" />
+    <Compile Include="DictionaryFileFillerTest.cs" />
     <Compile Include="UIMap.cs">
       <DependentUpon>UIMap.uitest</DependentUpon>
     </Compile>
