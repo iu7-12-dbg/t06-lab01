@@ -178,6 +178,12 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Common\ConcreteFabric.cs" />
+    <Compile Include="Common\DictionaryDBFiller.cs" />
+    <Compile Include="Common\IFabric.cs" />
+    <Compile Include="Common\LevenshteinDistanceCreator.cs" />
+    <Compile Include="Common\LevenshteinDistanceCreatorGeneric.cs" />
+    <Compile Include="Common\Singleton.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\WordsDictionaryController.cs" />
