@@ -10,7 +10,7 @@ namespace WordsProcessingWeb.Common
 {
     public class ConcreteFabric : IFabric
     {
-        public ILevenshteinDistance CreateLevenshteinDistance()
+        public ILevenshteinDistance CreateLevenshteinDistanceAlgorithm()
         {
             LevenshteinDistanceCreator levenshteinDistanceCreator = 
                     new LevenshteinDistanceCreatorGeneric<WagnerFischer>();

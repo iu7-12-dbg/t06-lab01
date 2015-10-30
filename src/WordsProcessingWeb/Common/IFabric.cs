@@ -9,10 +9,10 @@ namespace WordsProcessingWeb.Common
 {
     public interface IFabric
     {
-        public ILevenshteinDistance CreateLevenshteinDistance();
+        ILevenshteinDistance CreateLevenshteinDistanceAlgorithm();
 
-        public IDictionaryFiller CreateDictionaryFiller(string dictionaryFilename);
+        IDictionaryFiller CreateDictionaryFiller(string dictionaryFilename);
 
-        public IDictionaryFiller CreateDictionaryFiller(DictionaryDBContext context, string dictionaryName);
+        IDictionaryFiller CreateDictionaryFiller(DictionaryDBContext context, string dictionaryName);
     }
 }
