@@ -32,9 +32,9 @@ namespace WordsProcessingWeb.Controllers
                 string dictionaryFilename = AppDomain.CurrentDomain.BaseDirectory + "/Dictionaries/UK.txt";
 
                 WordsDictionary dictionary = new WordsDictionary(
-                        Singleton.Instance.Fabric.CreateLevenshteinDistanceAlgorithm(),
-                        Singleton.Instance.Fabric.CreateDictionaryFiller(db, language)
-                        //Singleton.Instance.Fabric.CreateDictionaryFiller(dictionaryFilename)
+                        Singleton.Instance.Factory.CreateLevenshteinDistanceAlgorithm(),
+                        Singleton.Instance.Factory.CreateDictionaryFiller(db, language)
+                        //Singleton.Instance.Factory.CreateDictionaryFiller(dictionaryFilename)
                 );
                 
                 List<string> closestWords = dictionary.GetClosestWords(inputedWord);

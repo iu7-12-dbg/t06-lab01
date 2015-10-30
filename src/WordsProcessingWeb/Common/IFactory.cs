@@ -7,7 +7,7 @@ using WordsProcessingWeb.DAL;
 
 namespace WordsProcessingWeb.Common
 {
-    public interface IFabric
+    public interface IFactory
     {
         ILevenshteinDistance CreateLevenshteinDistanceAlgorithm();
 

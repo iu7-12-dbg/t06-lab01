@@ -12,7 +12,7 @@ namespace WordsProcessingWeb.Common
 
         private Singleton() 
         {
-            Fabric = new ConcreteFabric();
+            Factory = new ConcreteFactory();
         }
 
         public static Singleton Instance
@@ -32,6 +32,6 @@ namespace WordsProcessingWeb.Common
             }
         }
 
-        public IFabric Fabric { get; set; }
+        public IFactory Factory { get; set; }
     }
 }
