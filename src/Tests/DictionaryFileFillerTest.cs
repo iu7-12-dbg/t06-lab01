@@ -9,7 +9,7 @@ using System.Linq;
 namespace Tests
 {
     [TestClass]
-    public class DictionaryProviderTest
+    public class DictionaryFileFillerTest
     {
         /// <summary>
         /// Тестирует метод на правильное прочтение строк из файла.
@@ -35,8 +35,10 @@ namespace Tests
 
             File.WriteAllLines(fileName, origWords, Encoding.UTF8);
 
+            DictionaryFileFiller filler = new DictionaryFileFiller(fileName);
+
             // act
-            List<string> words = DictionaryProvider.ReadStringsFromFile(fileName);
+            List<string> words = filler.Fill();
 
             // assert
             Assert.IsTrue(Enumerable.SequenceEqual(origWords, words.ToArray()));

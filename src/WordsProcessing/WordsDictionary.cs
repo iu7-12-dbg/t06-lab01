@@ -19,10 +19,11 @@ namespace WordsProcessing
         /// Инициализирует объект класса и заполняет начальными значениями его члены
         /// </summary>
         /// <param name="levDistance">Объект-алгоритм расчёта расстояния Левенштейна</param>
-        public WordsDictionary(ILevenshteinDistance levDistance)
+        public WordsDictionary(ILevenshteinDistance levDistance, IDictionaryFiller dictionaryFiller)
         {
             LevDistance = levDistance;
-            Words = new List<string>();
+            DictionaryFiller = dictionaryFiller;
+            FillDictionary();
         }
 
         /// <summary>
@@ -31,9 +32,14 @@ namespace WordsProcessing
         ILevenshteinDistance LevDistance { get; set; }
 
         /// <summary>
+        /// Возвращает и устанавливает реализацию интерфейса заполнителя словаря.
+        /// </summary>
+        IDictionaryFiller DictionaryFiller { get; set; }
+
+        /// <summary>
         /// Возвращает и устанавливает коллекцию слов, по которым ведется поиск.
         /// </summary>
-        public List<string> Words { get; set; }
+        List<string> Words { get; set; }
 
         /// <summary>
         /// Рассчитывает расстояние Левенштейна между заданным словом
@@ -80,6 +86,14 @@ namespace WordsProcessing
         {
             List<int> distanceList = CreateDistanceList(word);
             return GetListOfClosestWords(distanceList);
+        }
+
+        /// <summary>
+        /// Заполняет словарь словами.
+        /// </summary>
+        private void FillDictionary()
+        {
+            Words = DictionaryFiller.Fill();
         }
     }
 }

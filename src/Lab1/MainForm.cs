@@ -28,11 +28,12 @@ namespace Lab1
         public MainForm()
         {
             InitializeComponent();
-            IKernel ninjectKernel = new StandardKernel(new NinjectConfigModule());
-            CustomWordsDictionary = ninjectKernel.Get<WordsDictionary>();
+            NinjectKernel = new StandardKernel(new NinjectConfigModule());
         }
 
         WordsDictionary CustomWordsDictionary { get; set; }
+
+        IKernel NinjectKernel { get; set; }
 
         /// <summary>
         /// Метод AddClosestWordsToList
@@ -62,6 +63,9 @@ namespace Lab1
             SelectDictionaryToolStripMenuItem.Enabled = false;
             try
             {
+                if (CustomWordsDictionary == null)
+                    throw new Exception("Словарь не выбран.");
+
                 string word = txtInputWord.Text;
                 Task<List<string>> task = new Task<List<string>>(() => CustomWordsDictionary.GetClosestWords(word));
                 task.ContinueWith(OnDictionaryProcessingComplete);
@@ -113,7 +117,13 @@ namespace Lab1
             openFileDialog.InitialDirectory = Environment.CurrentDirectory;
             if (openFileDialog.ShowDialog(this) == DialogResult.OK)
             {
-                CustomWordsDictionary.Words = DictionaryProvider.ReadStringsFromFile(openFileDialog.FileName);
+                NinjectKernel.GetBindings(typeof(IDictionaryFiller)).
+                        Where(binding => !binding.IsConditional).
+                        ToList().
+                        ForEach(binding => NinjectKernel.RemoveBinding(binding));
+
+                NinjectKernel.Bind<IDictionaryFiller>().To<DictionaryFileFiller>().WithConstructorArgument(openFileDialog.FileName);
+                CustomWordsDictionary = NinjectKernel.Get<WordsDictionary>();
                 txtBxActiveDictionary.Text = Path.GetFileName(openFileDialog.FileName);
                 btnFindClosestWords.Enabled = true;
             }
