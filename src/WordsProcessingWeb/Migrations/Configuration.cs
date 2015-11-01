@@ -17,6 +17,8 @@ namespace WordsProcessingWeb.Migrations
 
         protected override void Seed(WordsProcessingWeb.DAL.DictionaryDBContext context)
         {
+            context.Configuration.AutoDetectChangesEnabled = false;
+
             Dictionary rusDictionary = new Dictionary { Name = "Rus" };
             Dictionary UKDictionary = new Dictionary { Name = "UK" };
             context.Dictionaries.Add(rusDictionary);

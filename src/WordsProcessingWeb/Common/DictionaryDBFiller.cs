@@ -21,7 +21,7 @@ namespace WordsProcessingWeb.Common
 
         public List<string> Fill()
         {
-            return Context.Words.Where(word => word.Dictionary.Name == DictionaryName).Select(word => word.Text).ToList();
+            return Context.Words.AsNoTracking().Where(word => word.Dictionary.Name == DictionaryName).Select(word => word.Text).ToList();
         }
     }
 }
