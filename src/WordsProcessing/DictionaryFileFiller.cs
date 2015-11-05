@@ -7,8 +7,15 @@ using System.Threading.Tasks;
 
 namespace WordsProcessing
 {
+    /// <summary>
+    /// Заполняет словарь из файла.
+    /// </summary>
     public class DictionaryFileFiller : IDictionaryFiller
     {
+        /// <summary>
+        /// Инициализирует объект класса.
+        /// </summary>
+        /// <param name="dictionaryFileName">Имя файла словаря.</param>
         public DictionaryFileFiller(string dictionaryFileName)
         {
             if (dictionaryFileName == null || dictionaryFileName == "")
@@ -17,8 +24,14 @@ namespace WordsProcessing
             DictionaryFileName = (string) dictionaryFileName.Clone();
         }
 
+        /// <summary>
+        /// Возвращает и устанавливает имя файла словаря.
+        /// </summary>
         private string DictionaryFileName { get; set; }
 
+        /// <summary>
+        /// Возвращает список слов.
+        /// </summary>
         public List<string> Fill()
         {
             List<string> strings = new List<string>();

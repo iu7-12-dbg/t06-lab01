@@ -13,7 +13,7 @@ namespace WordsProcessing
     /// Содержит словарь слов, по которому осуществляет поиск слов
     /// с минимальным расстоянием Левенштейна по отношению к заданному слову
     /// </summary>
-    public class WordsDictionary
+    public class WordsDictionary : IWordsDictionary
     {
         /// <summary>
         /// Инициализирует объект класса и заполняет начальными значениями его члены
@@ -29,17 +29,17 @@ namespace WordsProcessing
         /// <summary>
         /// Возвращает и устанавливает объект-алгоритм расчёта расстояния Левенштейна.
         /// </summary>
-        ILevenshteinDistance LevDistance { get; set; }
+        internal ILevenshteinDistance LevDistance { get; set; }
 
         /// <summary>
         /// Возвращает и устанавливает реализацию интерфейса заполнителя словаря.
         /// </summary>
-        IDictionaryFiller DictionaryFiller { get; set; }
+        internal IDictionaryFiller DictionaryFiller { get; set; }
 
         /// <summary>
         /// Возвращает и устанавливает коллекцию слов, по которым ведется поиск.
         /// </summary>
-        List<string> Words { get; set; }
+        internal List<string> Words { get; set; }
 
         /// <summary>
         /// Рассчитывает расстояние Левенштейна между заданным словом

@@ -6,8 +6,15 @@ using System.Threading.Tasks;
 
 namespace WordsProcessing
 {
+    /// <summary>
+    /// Интерфейс заполнения словаря.
+    /// </summary>
     public interface IDictionaryFiller
     {
+        /// <summary>
+        /// Возвращает список слов.
+        /// </summary>
+        /// <returns></returns>
         List<string> Fill();
     }
 }
