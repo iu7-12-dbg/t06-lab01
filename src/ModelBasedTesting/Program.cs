@@ -18,17 +18,29 @@ namespace ModelBasedTesting
             );
 
             const int TestCount = 30;
-            Random rnd = new Random();
 
-            ExistingWordsTest(model, TestCount, rnd);
-            RandomWordsTest(model, TestCount, rnd);
+            try
+            {
+                ExistingWordsTest(model, TestCount);
+                RandomWordsTest(model, TestCount);
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
 
             Console.WriteLine("\nPress any key to exit");
             Console.ReadKey();
         }
 
-        private static void RandomWordsTest(WordsDictionaryModel model, int TestCount, Random rnd)
+        /// <summary>
+        /// Тестирует словарь, подавая в него случайные сгенерированные слова.
+        /// </summary>
+        /// <param name="model">Тестируемая модель словаря.</param>
+        /// <param name="TestCount">Количество тестов.</param>
+        private static void RandomWordsTest(WordsDictionaryModel model, int TestCount)
         {
+            Random rnd = new Random();
             for (int i = 0; i < TestCount; ++i)
             {
                 int wordLen = rnd.Next(10);
@@ -37,8 +49,14 @@ namespace ModelBasedTesting
             }
         }
 
-        private static void ExistingWordsTest(WordsDictionaryModel model, int TestCount, Random rnd)
+        /// <summary>
+        /// Тестирует словарь, подавая в него слова, которые в нем существуют.
+        /// </summary>
+        /// <param name="model">Тестируемая модель словаря.</param>
+        /// <param name="TestCount">Количество тестов.</param>
+        private static void ExistingWordsTest(WordsDictionaryModel model, int TestCount)
         {
+            Random rnd = new Random();
             for (int i = 0; i < TestCount; ++i)
             {
                 string word = model.ModelImplementation.Words[rnd.Next(model.WordsCount)];
@@ -48,6 +66,11 @@ namespace ModelBasedTesting
             Console.WriteLine();
         }
 
+        /// <summary>
+        /// Генерирует случайное слово заданной длины.
+        /// </summary>
+        /// <param name="wordLength">Длина слова.</param>
+        /// <returns>Сгенерированное слово.</returns>
         static string GenerateWord(int wordLength)
         {
             Random rnd = new Random();
