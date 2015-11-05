@@ -11,14 +11,15 @@ namespace WordsProcessing
 {
     /// <summary>
     /// Содержит словарь слов, по которому осуществляет поиск слов
-    /// с минимальным расстоянием Левенштейна по отношению к заданному слову
+    /// с минимальным расстоянием Левенштейна по отношению к заданному слову.
     /// </summary>
     public class WordsDictionary : IWordsDictionary
     {
         /// <summary>
-        /// Инициализирует объект класса и заполняет начальными значениями его члены
+        /// Инициализирует объект класса и заполняет начальными значениями его члены.
         /// </summary>
-        /// <param name="levDistance">Объект-алгоритм расчёта расстояния Левенштейна</param>
+        /// <param name="levDistance">Объект-алгоритм расчёта расстояния Левенштейна.</param>
+        /// <param name="dictionaryFiller">Объект-наполнитель словаря.</param>
         public WordsDictionary(ILevenshteinDistance levDistance, IDictionaryFiller dictionaryFiller)
         {
             LevDistance = levDistance;
