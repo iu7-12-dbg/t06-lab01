@@ -61,7 +61,7 @@ namespace ModelBasedTesting
         /// <summary>
         /// Возвращает текущее количество слов в словаре.
         /// </summary>
-        int WordsCount { get { return ModelImplementation.Words.Count; } }
+        public int WordsCount { get { return ModelImplementation.Words.Count; } }
 
         /// <summary>
         /// Инвариант объекта, описывает ожидаемое состояние класса, которое является валидным.
